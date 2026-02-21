@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.training</groupId>
+    <artifactId>training-examples</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Training Examples - Parent</name>
+    <description>Multi-module project with standalone demo code for each training day</description>
+
+    <modules>
+        <module>day01-java-basics</module>
+        <module>day02-oop</module>
+        <module>day03-exceptions</module>
+        <module>day04-collections</module>
+        <module>day05-data-structures</module>
+        <module>day07-file-handling</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>

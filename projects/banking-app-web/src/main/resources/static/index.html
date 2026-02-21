@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Bank - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Simple Bank</h1>
+        <p>Your Trusted Banking Partner</p>
+    </div>
+    <div class="nav">
+        <a href="index.html" class="nav-active">Home</a>
+        <a href="accounts.html">Accounts</a>
+        <a href="create-account.html">Open Account</a>
+        <a href="transaction.html">Transactions</a>
+    </div>
+
+    <div class="container">
+        <h2>Dashboard</h2>
+
+        <div class="dashboard-cards">
+            <div class="card">
+                <h3>Total Accounts</h3>
+                <div class="card-value" id="totalAccounts">--</div>
+            </div>
+            <div class="card">
+                <h3>Total Balance</h3>
+                <div class="card-value" id="totalBalance">--</div>
+            </div>
+        </div>
+
+        <h2>Quick Links</h2>
+        <ul class="quick-links">
+            <li><a href="accounts.html">View All Accounts</a></li>
+            <li><a href="create-account.html">Open New Account</a></li>
+            <li><a href="transaction.html">Deposit / Withdraw</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        Simple Bank &copy; 2024 | Training Project
+    </div>
+
+    <script>
+        // Load summary data on page load
+        window.addEventListener("DOMContentLoaded", function() {
+            fetch("/api/accounts")
+                .then(response => response.json())
+                .then(accounts => {
+                    document.getElementById("totalAccounts").textContent = accounts.length;
+                    const totalBalance = accounts.reduce((sum, acc) => sum + acc.balance, 0);
+                    document.getElementById("totalBalance").textContent =
+                        "Rs." + totalBalance.toLocaleString("en-IN", { minimumFractionDigits: 2 });
+                })
+                .catch(error => {
+                    console.error("Error loading dashboard:", error);
+                    document.getElementById("totalAccounts").textContent = "Error";
+                    document.getElementById("totalBalance").textContent = "Error";
+                });
+        });
+    </script>
+</body>
+</html>

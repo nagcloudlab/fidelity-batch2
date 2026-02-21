@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction - Simple Bank</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Simple Bank</h1>
+        <p>Your Trusted Banking Partner</p>
+    </div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="accounts.html">Accounts</a>
+        <a href="create-account.html">Open Account</a>
+        <a href="transaction.html" class="nav-active">Transactions</a>
+    </div>
+
+    <div class="container">
+        <h2>Deposit / Withdraw</h2>
+
+        <form id="txnForm">
+            <div class="form-group">
+                <label for="accNo">Account Number</label>
+                <input type="number" id="accNo" name="accountNumber"
+                       min="1000" max="99999" placeholder="e.g. 1001" required>
+            </div>
+
+            <div class="form-group radio-group">
+                <label>Transaction Type</label><br>
+                <label>
+                    <input type="radio" name="txnType" value="deposit" checked> Deposit
+                </label>
+                <label>
+                    <input type="radio" name="txnType" value="withdraw"> Withdraw
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Amount (Rs.)</label>
+                <input type="number" id="amount" name="amount"
+                       min="1" step="0.01" placeholder="Enter amount" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit Transaction</button>
+                <button type="reset" class="btn btn-secondary">Clear</button>
+            </div>
+        </form>
+
+        <div id="message" style="margin-top: 15px; font-weight: bold;"></div>
+    </div>
+
+    <div class="footer">
+        Simple Bank &copy; 2024 | Training Project
+    </div>
+
+    <script src="js/transaction.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Day 11 - Fetch API Demo (HTML Page)
+
+        Demonstrates:
+        - Button that triggers a fetch() GET request to a demo API
+        - Displaying fetched JSON data in the page (DOM manipulation)
+        - Loading live data into an HTML table
+        - Form submission using fetch() POST (preventDefault pattern)
+        - Error handling and user feedback messages
+
+        How to test:
+        1. Open this file in a browser
+        2. Click "Load Accounts" to fetch data from the demo API
+        3. The table will populate with JSON data
+
+        Note: This demo uses JSONPlaceholder (https://jsonplaceholder.typicode.com)
+        as a free, public API for testing. In a real banking app, this would
+        point to your Spring Boot REST API at http://localhost:8080/api/accounts.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Demo — Day 11</title>
+    <style>
+        /* Minimal styling for the demo page */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f6fa;
+        }
+
+        .header {
+            background-color: #1a5276;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #1a5276;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #aed6f1;
+            padding-bottom: 5px;
+        }
+
+        h3 { color: #1a5276; margin: 20px 0 10px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 10px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th { background-color: #1a5276; color: white; }
+        tbody tr:nth-child(even) { background-color: #f9f9f9; }
+        tbody tr:hover { background-color: #eaf2f8; }
+
+        .btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px 5px 5px 0;
+            color: white;
+        }
+
+        .btn-primary { background-color: #1a5276; }
+        .btn-primary:hover { background-color: #154360; }
+        .btn-secondary { background-color: #95a5a6; }
+        .btn-secondary:hover { background-color: #7f8c8d; }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #1a5276;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            border-color: #1a5276;
+            outline: none;
+            box-shadow: 0 0 4px rgba(26, 82, 118, 0.3);
+        }
+
+        #message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .message-success { background-color: #d4efdf; color: #27ae60; }
+        .message-error { background-color: #fadbd8; color: #e74c3c; }
+
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 10px 0;
+            border-left: 4px solid #1a5276;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            color: #999;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =============================================
+         HEADER
+         ============================================= -->
+    <div class="header">
+        <h1>Fetch API Demo</h1>
+    </div>
+
+    <!-- =============================================
+         MAIN CONTENT
+         ============================================= -->
+    <div class="container">
+
+        <!-- =============================================
+             SECTION 1: FETCH GET — Load data from API
+             ============================================= -->
+        <h2>1. Fetch GET — Load Data</h2>
+        <p>Click the button to fetch user data from a demo API and display it in the table.</p>
+        <p><em>API: <code>https://jsonplaceholder.typicode.com/users</code></em></p>
+
+        <button id="loadBtn" class="btn btn-primary">Load Users</button>
+        <button id="clearBtn" class="btn btn-secondary">Clear Table</button>
+
+        <!-- Table with empty tbody — JavaScript will populate it -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody id="usersBody">
+                <!-- Rows will be populated by JavaScript -->
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #999;">
+                        Click "Load Users" to fetch data from the API
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr style="margin: 30px 0;">
+
+        <!-- =============================================
+             SECTION 2: FETCH POST — Send data to API
+             ============================================= -->
+        <h2>2. Fetch POST — Create Data</h2>
+        <p>Fill in the form and click submit. The data will be sent to the demo API via POST.</p>
+        <p><em>API: <code>https://jsonplaceholder.typicode.com/posts</code></em></p>
+
+        <form id="createForm">
+            <div class="form-group">
+                <label for="title">Post Title</label>
+                <input type="text" id="title" name="title"
+                       placeholder="Enter a title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="body">Post Body</label>
+                <input type="text" id="body" name="body"
+                       placeholder="Enter body text" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit (POST)</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+        </form>
+
+        <!-- Message area — JavaScript will update this -->
+        <div id="message"></div>
+
+        <hr style="margin: 30px 0;">
+
+        <!-- =============================================
+             SECTION 3: HOW IT WORKS — Code explanation
+             ============================================= -->
+        <h2>3. How fetch() Works</h2>
+
+        <h3>GET Request (read data)</h3>
+        <div class="code-block">
+            fetch("https://api.example.com/data")<br>
+            &nbsp;&nbsp;.then(response =&gt; response.json())&nbsp;&nbsp;// parse JSON<br>
+            &nbsp;&nbsp;.then(data =&gt; {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(data);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// use the data<br>
+            &nbsp;&nbsp;})<br>
+            &nbsp;&nbsp;.catch(error =&gt; {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.error("Error:", error);&nbsp;// handle errors<br>
+            &nbsp;&nbsp;});
+        </div>
+
+        <h3>POST Request (send data)</h3>
+        <div class="code-block">
+            fetch("https://api.example.com/data", {<br>
+            &nbsp;&nbsp;method: "POST",<br>
+            &nbsp;&nbsp;headers: { "Content-Type": "application/json" },<br>
+            &nbsp;&nbsp;body: JSON.stringify({ key: "value" })<br>
+            })<br>
+            .then(response =&gt; response.json())<br>
+            .then(created =&gt; console.log("Created:", created))<br>
+            .catch(error =&gt; console.error("Error:", error));
+        </div>
+
+        <h3>Key Concepts</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Concept</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>fetch(url)</code></td>
+                    <td>Send an HTTP request (like Postman, but from code)</td>
+                </tr>
+                <tr>
+                    <td><code>response.json()</code></td>
+                    <td>Parse the response body as JSON</td>
+                </tr>
+                <tr>
+                    <td><code>.then()</code></td>
+                    <td>Handle the result when the request completes</td>
+                </tr>
+                <tr>
+                    <td><code>.catch()</code></td>
+                    <td>Handle errors (network failure, etc.)</td>
+                </tr>
+                <tr>
+                    <td><code>JSON.stringify()</code></td>
+                    <td>Convert a JS object to a JSON string for sending</td>
+                </tr>
+                <tr>
+                    <td><code>event.preventDefault()</code></td>
+                    <td>Stop form from reloading the page (let JS handle it)</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
+    <div class="footer">
+        Day 11 — Fetch API Demo | Training Project
+    </div>
+
+    <!-- =============================================
+         JAVASCRIPT — loaded at the end of body
+         External file is best practice.
+         ============================================= -->
+    <script src="fetch-demo.js"></script>
+
+</body>
+</html>

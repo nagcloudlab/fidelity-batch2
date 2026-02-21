@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts - Simple Bank</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Simple Bank</h1>
+        <p>Your Trusted Banking Partner</p>
+    </div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="accounts.html" class="nav-active">Accounts</a>
+        <a href="create-account.html">Open Account</a>
+        <a href="transaction.html">Transactions</a>
+    </div>
+
+    <div class="container">
+        <h2>All Accounts</h2>
+
+        <table id="accountsTable">
+            <thead>
+                <tr>
+                    <th>Account No.</th>
+                    <th>Holder Name</th>
+                    <th>Type</th>
+                    <th>Balance (Rs.)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="accountsBody">
+                <!-- Rows will be populated by JavaScript -->
+            </tbody>
+        </table>
+
+        <p style="margin-top: 15px;">
+            <a href="create-account.html" class="btn btn-primary">+ Open New Account</a>
+        </p>
+    </div>
+
+    <div class="footer">
+        Simple Bank &copy; 2024 | Training Project
+    </div>
+
+    <script src="js/accounts.js"></script>
+</body>
+</html>
