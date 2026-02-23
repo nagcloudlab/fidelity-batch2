@@ -1,0 +1,322 @@
+/*
+ * Day 9 - CSS Stylesheet for Simple Bank
+ *
+ * Demonstrates:
+ * - CSS reset and base styles (body font, colors, line-height)
+ * - Header and navigation bar styling
+ * - Container layout with max-width and centering
+ * - Table styling with border-collapse, zebra stripes, and hover effects
+ * - Form styling with focus states and input formatting
+ * - Button styles with hover effects (primary, secondary, danger)
+ * - Status badges (active/inactive)
+ * - Footer styling
+ * - CSS selectors: element, class, ID, descendant, pseudo-classes
+ * - Box model: margin, border, padding, border-radius, box-shadow
+ *
+ * This single CSS file is shared by all HTML pages (external stylesheet).
+ * Link it with: <link rel="stylesheet" href="styles.css">
+ */
+
+
+/* ==============================================
+   1. RESET & BASE STYLES
+   Reset removes default browser margins/padding.
+   box-sizing: border-box makes width/height include padding and border.
+   ============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* font stack with fallbacks */
+    font-size: 14px;           /* base font size */
+    color: #333;               /* dark gray text — easier on the eyes than pure black */
+    line-height: 1.6;          /* space between lines (1.6x the font size) */
+    background-color: #f5f6fa; /* light gray page background */
+}
+
+
+/* ==============================================
+   2. HEADER
+   Dark blue banner at the top of every page.
+   ============================================== */
+.header {
+    background-color: #1a5276;   /* dark blue */
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    letter-spacing: 1px;        /* slight space between letters */
+}
+
+
+/* ==============================================
+   3. NAVIGATION BAR
+   Slightly darker blue bar below the header.
+   Links are styled to look like a menu.
+   ============================================== */
+.nav {
+    background-color: #154360;   /* darker blue */
+    padding: 10px 30px;
+    text-align: center;
+}
+
+.nav a {
+    color: #aed6f1;              /* light blue link color */
+    text-decoration: none;       /* remove underline */
+    margin: 0 15px;              /* horizontal spacing between links */
+    font-size: 14px;
+}
+
+/* Hover effect — link turns white and gets underline */
+.nav a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Active page link — white and bold with bottom border */
+.nav a.nav-active {
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+    padding-bottom: 3px;
+}
+
+
+/* ==============================================
+   4. MAIN CONTENT CONTAINER
+   Centered white card with shadow — holds page content.
+   max-width prevents the content from stretching too wide.
+   margin: 20px auto centers the div horizontally.
+   ============================================== */
+.container {
+    max-width: 900px;
+    margin: 20px auto;                           /* vertical 20px, horizontal auto (centered) */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;                          /* rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);   /* subtle shadow */
+}
+
+/* Section headings inside the container */
+h2 {
+    color: #1a5276;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #aed6f1;            /* decorative underline */
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #1a5276;
+    margin: 15px 0 10px 0;
+}
+
+
+/* ==============================================
+   5. TABLE STYLING
+   ============================================== */
+
+/* border-collapse: collapse merges adjacent cell borders into one.
+   Without it, each cell has its own border = ugly double lines. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+/* Shared styles for header cells (th) and data cells (td) */
+th, td {
+    padding: 10px 15px;          /* space inside each cell */
+    text-align: left;
+    border: 1px solid #ddd;      /* light gray cell borders */
+}
+
+/* Header cells — white text on dark blue background */
+th {
+    background-color: #1a5276;
+    color: white;
+    font-weight: normal;
+}
+
+/* Zebra stripes — every even row gets a light background.
+   :nth-child(even) is a pseudo-class that targets even-numbered rows. */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect — row highlights when mouse is over it.
+   :hover is a pseudo-class that applies when the mouse is on the element. */
+tbody tr:hover {
+    background-color: #eaf2f8;
+}
+
+
+/* ==============================================
+   6. FORM STYLING
+   ============================================== */
+
+/* Each form field is wrapped in a .form-group div */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Labels above inputs — block display puts them on their own line */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #1a5276;
+}
+
+/* All text-like inputs, selects, and textareas share the same base style */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;                  /* full width of the container */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Focus state — blue border and glow when the input is selected.
+   :focus is a pseudo-class that applies when the element is clicked/tabbed to.
+   outline: none removes the default browser focus ring. */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1a5276;
+    outline: none;
+    box-shadow: 0 0 4px rgba(26, 82, 118, 0.3);   /* subtle blue glow */
+}
+
+/* Radio button group — labels are inline (side by side) */
+.radio-group label {
+    display: inline;
+    font-weight: normal;
+    margin-right: 20px;
+}
+
+
+/* ==============================================
+   7. BUTTON STYLES
+   Buttons use classes for different colors/purposes.
+   .btn = base button style
+   .btn-primary = main action (blue)
+   .btn-secondary = secondary action (gray)
+   .btn-danger = destructive action (red)
+   ============================================== */
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;              /* hand cursor on hover */
+    font-size: 14px;
+    margin-right: 10px;
+    text-decoration: none;        /* removes underline when used on <a> tags */
+    display: inline-block;        /* allows padding/margin on inline elements */
+}
+
+/* Primary button — dark blue, used for main actions (Create, Submit) */
+.btn-primary {
+    background-color: #1a5276;
+    color: white;
+}
+
+/* Hover makes the button slightly darker */
+.btn-primary:hover {
+    background-color: #154360;
+}
+
+/* Secondary button — gray, used for less important actions (Clear, Cancel) */
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+/* Danger button — red, used for destructive actions (Delete) */
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Small button variant — for use inside table cells */
+.btn-sm {
+    padding: 4px 12px;
+    font-size: 12px;
+    margin: 0 2px;
+}
+
+
+/* ==============================================
+   8. STATUS BADGES
+   Small colored labels for Active/Inactive status.
+   ============================================== */
+.badge {
+    padding: 3px 10px;
+    border-radius: 12px;          /* pill shape */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Green badge for active accounts */
+.badge-active {
+    background-color: #d4efdf;
+    color: #27ae60;
+}
+
+/* Red badge for inactive accounts */
+.badge-inactive {
+    background-color: #fadbd8;
+    color: #e74c3c;
+}
+
+
+/* ==============================================
+   9. FOOTER
+   Simple centered text at the bottom of the page.
+   ============================================== */
+.footer {
+    text-align: center;
+    padding: 15px;
+    color: #999;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+
+/* ==============================================
+   BOX MODEL REFERENCE (for learning)
+
+   Every HTML element is a box with four layers:
+
+   ┌─────────────── margin ────────────────┐
+   │  ┌──────────── border ─────────────┐  │
+   │  │  ┌──────── padding ─────────┐   │  │
+   │  │  │                           │   │  │
+   │  │  │        CONTENT            │   │  │
+   │  │  │    (text, image, etc.)    │   │  │
+   │  │  │                           │   │  │
+   │  │  └───────────────────────────┘   │  │
+   │  └──────────────────────────────────┘  │
+   └────────────────────────────────────────┘
+
+   margin:  space OUTSIDE the border (between elements)
+   border:  the visible edge
+   padding: space INSIDE the border (between border and content)
+
+   Tip: Open DevTools (F12) > Inspect element > see box model visualization.
+   ============================================== */

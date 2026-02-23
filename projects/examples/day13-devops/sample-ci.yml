@@ -1,0 +1,164 @@
+# =============================================
+# Day 13 - Sample GitHub Actions CI/CD Pipeline
+#
+# Demonstrates:
+# - GitHub Actions workflow configuration (YAML)
+# - Pipeline triggers: push and pull_request
+# - Job definition with sequential steps
+# - Checkout code from the repository
+# - Set up Java 17 with Temurin distribution
+# - Build with Maven (mvn compile)
+# - Run tests with Maven (mvn test)
+# - Package the application (mvn package)
+# - Upload build artifacts
+#
+# File location in a real project:
+#   .github/workflows/ci.yml
+#
+# What is CI (Continuous Integration)?
+#   Automatically build and test code every time someone pushes a change.
+#   If any step fails, the pipeline STOPS and the team is notified.
+#
+# Pipeline flow:
+#   Developer pushes code → GitHub detects → Builds → Tests → Reports result
+# =============================================
+
+# ------------------------------------------
+# Workflow name — displayed in the GitHub Actions tab
+# ------------------------------------------
+name: Banking API CI
+
+# ------------------------------------------
+# TRIGGERS — when does this pipeline run?
+# ------------------------------------------
+on:
+  # Run on every push to the main branch
+  push:
+    branches: [ main ]
+
+  # Run on every pull request targeting main
+  # This ensures code is tested BEFORE it gets merged
+  pull_request:
+    branches: [ main ]
+
+# ------------------------------------------
+# JOBS — what work to perform
+# A workflow can have multiple jobs that run in parallel.
+# Here we have one job: "build-and-test"
+# ------------------------------------------
+jobs:
+  build-and-test:
+    # The type of machine to run the job on
+    # ubuntu-latest = a fresh Ubuntu Linux virtual machine
+    runs-on: ubuntu-latest
+
+    # Steps run sequentially within the job
+    steps:
+
+    # ------------------------------------------
+    # Step 1: CHECKOUT CODE
+    # ------------------------------------------
+    # Downloads your repository code onto the runner machine.
+    # Without this step, the runner has no access to your code.
+    # "uses" refers to a pre-built action from the GitHub marketplace.
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # ------------------------------------------
+    # Step 2: SET UP JAVA 17
+    # ------------------------------------------
+    # Installs Java 17 (Temurin/AdoptOpenJDK distribution) on the runner.
+    # "cache: maven" caches downloaded Maven dependencies between runs
+    # so subsequent builds are faster.
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    # ------------------------------------------
+    # Step 3: BUILD (compile the project)
+    # ------------------------------------------
+    # "run" executes a shell command on the runner.
+    # mvn compile:
+    #   - Downloads dependencies (first time)
+    #   - Compiles all Java source files
+    #   - If compilation fails, the pipeline STOPS here
+    - name: Build with Maven
+      run: mvn compile
+
+    # ------------------------------------------
+    # Step 4: TEST (run all unit tests)
+    # ------------------------------------------
+    # mvn test:
+    #   - Compiles test classes
+    #   - Runs all JUnit tests
+    #   - Reports pass/fail for each test
+    #   - If ANY test fails, the pipeline STOPS here
+    #
+    # This is the most important CI step — it catches bugs
+    # before they reach the main branch.
+    - name: Run tests
+      run: mvn test
+
+    # ------------------------------------------
+    # Step 5: PACKAGE (create deployable JAR)
+    # ------------------------------------------
+    # mvn package -DskipTests:
+    #   - Creates the fat JAR (e.g., bank-api-0.0.1-SNAPSHOT.jar)
+    #   - -DskipTests skips tests since we already ran them in Step 4
+    #   - The JAR is ready for deployment (Docker, server, etc.)
+    - name: Package application
+      run: mvn package -DskipTests
+
+    # ------------------------------------------
+    # Step 6: UPLOAD ARTIFACT (save the built JAR)
+    # ------------------------------------------
+    # Uploads the JAR file as a "build artifact" that can be
+    # downloaded from the GitHub Actions UI.
+    # Useful for deployment or manual testing.
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: bank-api-jar
+        path: target/*.jar
+
+
+# =============================================
+# YAML REFERENCE
+# =============================================
+#
+# | Section    | Purpose                                          |
+# |------------|--------------------------------------------------|
+# | name       | Display name of the workflow                     |
+# | on         | Trigger: when does this pipeline run?            |
+# | jobs       | One or more jobs to execute                      |
+# | runs-on    | What machine to use (Ubuntu Linux VM)            |
+# | steps      | Sequential actions within a job                  |
+# | uses       | Pre-built action from the GitHub marketplace     |
+# | run        | Shell command to execute                         |
+# | with       | Input parameters for an action                   |
+#
+# =============================================
+# PIPELINE TRIGGERS
+# =============================================
+#
+# | Trigger            | When it runs                    | Use for          |
+# |--------------------|---------------------------------|------------------|
+# | push to main       | Every push to main branch       | Build + test     |
+# | pull_request       | When a PR is created/updated    | Test before merge|
+# | schedule (cron)    | On a schedule                   | Nightly builds   |
+# | workflow_dispatch  | Manual trigger from GitHub UI   | On-demand deploy |
+#
+# =============================================
+# CI PIPELINE STAGES (conceptual)
+# =============================================
+#
+#   ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
+#   │  BUILD    │ →  │   TEST   │ →  │ PACKAGE  │ →  │  DEPLOY  │
+#   │ mvn       │    │ mvn test │    │ mvn      │    │ docker   │
+#   │ compile   │    │          │    │ package  │    │ push     │
+#   └──────────┘    └──────────┘    └──────────┘    └──────────┘
+#
+# If any stage fails, the pipeline STOPS and the team is notified.

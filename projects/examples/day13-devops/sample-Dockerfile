@@ -1,0 +1,148 @@
+# =============================================
+# Day 13 - Sample Dockerfile for a Spring Boot Application
+#
+# Demonstrates:
+# - FROM: base image selection (Java 17 on Alpine Linux)
+# - WORKDIR: setting the working directory inside the container
+# - COPY: copying the JAR file from host into the container
+# - EXPOSE: documenting which port the app listens on
+# - CMD: the command that runs when the container starts
+# - Comments explaining each instruction
+#
+# How to use:
+#   1. Build the Spring Boot JAR first:
+#      mvn clean package -DskipTests
+#
+#   2. Build the Docker image:
+#      docker build -t bank-api:1.0 .
+#
+#   3. Run the container:
+#      docker run -d -p 8080:8080 --name bank-app bank-api:1.0
+#
+#   4. Test it:
+#      curl http://localhost:8080/api/accounts
+#
+#   5. View logs:
+#      docker logs bank-app
+#
+#   6. Stop and remove:
+#      docker stop bank-app
+#      docker rm bank-app
+#
+# Key concepts:
+# - An IMAGE is a read-only template (like a Java class)
+# - A CONTAINER is a running instance of an image (like a Java object)
+# - You build an image ONCE and can create MANY containers from it
+# =============================================
+
+
+# -------------------------------------------------
+# Step 1: Base Image
+# -------------------------------------------------
+# FROM specifies the starting point for this image.
+# eclipse-temurin:17-jdk-alpine provides:
+#   - Java 17 JDK (to run our Spring Boot app)
+#   - Alpine Linux (minimal OS — only ~5 MB, keeps image small)
+#
+# Alternative base images:
+#   eclipse-temurin:17-jre-alpine   — JRE only (smaller, no compiler)
+#   openjdk:17-slim                 — Debian-based (larger but more tools)
+FROM eclipse-temurin:17-jdk-alpine
+
+
+# -------------------------------------------------
+# Step 2: Working Directory
+# -------------------------------------------------
+# WORKDIR sets the directory inside the container where commands run.
+# If /app doesn't exist, Docker creates it automatically.
+# All subsequent COPY and CMD instructions are relative to this path.
+WORKDIR /app
+
+
+# -------------------------------------------------
+# Step 3: Copy Application JAR
+# -------------------------------------------------
+# COPY copies files from the host machine (your computer) into the image.
+# Syntax: COPY <source-on-host> <destination-in-container>
+#
+# We copy the Spring Boot fat JAR (built by "mvn package") into the container.
+# Renaming it to "app.jar" keeps the CMD simple.
+#
+# NOTE: Run "mvn clean package -DskipTests" BEFORE "docker build"
+# so that the JAR file exists in target/.
+COPY target/bank-api-0.0.1-SNAPSHOT.jar app.jar
+
+
+# -------------------------------------------------
+# Step 4: Expose Port
+# -------------------------------------------------
+# EXPOSE documents which port the application listens on.
+# This is informational only — it doesn't actually open the port.
+# The actual port mapping happens at runtime with:
+#   docker run -p 8080:8080 ...
+#
+# Port mapping: -p HOST_PORT:CONTAINER_PORT
+#   -p 8080:8080   → access at localhost:8080
+#   -p 9090:8080   → access at localhost:9090
+EXPOSE 8080
+
+
+# -------------------------------------------------
+# Step 5: Startup Command
+# -------------------------------------------------
+# CMD specifies the command that runs when a container starts.
+# This starts our Spring Boot application using java -jar.
+#
+# Two formats:
+#   CMD ["java", "-jar", "app.jar"]    — exec form (preferred, no shell)
+#   CMD java -jar app.jar              — shell form (runs in /bin/sh)
+#
+# Only ONE CMD instruction is allowed per Dockerfile.
+# If you specify multiple, only the LAST one takes effect.
+CMD ["java", "-jar", "app.jar"]
+
+
+# =============================================
+# IMAGE BUILD & RUN LIFECYCLE
+# =============================================
+#
+#   Dockerfile          docker build         Image              docker run          Container
+#   ──────────         ────────────         ──────             ──────────          ─────────
+#   FROM java:17   →   Builds layers   →   bank-api:1.0   →  Creates and    →   Running app
+#   COPY app.jar       (build once)        (reusable)         runs instance      on port 8080
+#   CMD java -jar                          (read-only)        (writeable)
+#
+# =============================================
+# COMMON DOCKER COMMANDS
+# =============================================
+#
+# Build:
+#   docker build -t bank-api:1.0 .              Build image from Dockerfile
+#
+# Run:
+#   docker run -p 8080:8080 bank-api:1.0        Run in foreground
+#   docker run -d -p 8080:8080 --name bank-app bank-api:1.0   Run in background
+#
+# Manage containers:
+#   docker ps                                    List running containers
+#   docker ps -a                                 List all containers (incl. stopped)
+#   docker stop bank-app                         Stop a container
+#   docker start bank-app                        Start a stopped container
+#   docker logs bank-app                         View container logs
+#   docker rm bank-app                           Remove a container
+#
+# Manage images:
+#   docker images                                List images
+#   docker rmi bank-api:1.0                      Remove an image
+#
+# =============================================
+# CONTAINERS vs VIRTUAL MACHINES
+# =============================================
+#
+# | Aspect         | Virtual Machine     | Container            |
+# |----------------|---------------------|----------------------|
+# | Size           | GBs (full OS)       | MBs (app + libs)     |
+# | Startup time   | Minutes             | Seconds              |
+# | Isolation      | Full OS isolation   | Process-level        |
+# | Resource usage | Heavy               | Lightweight          |
+# | Portability    | Less portable       | Runs anywhere Docker |

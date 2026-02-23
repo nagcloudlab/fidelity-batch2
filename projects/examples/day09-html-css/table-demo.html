@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Day 9 - HTML Table Demo
+
+        Demonstrates:
+        - Table structure: <table>, <thead>, <tbody>, <tr>, <th>, <td>
+        - thead = header section (column titles)
+        - tbody = body section (data rows)
+        - tr = table row
+        - th = header cell (bold, centered by default)
+        - td = data cell (regular content)
+        - CSS styling: border-collapse, zebra stripes, hover effects
+        - 5 sample rows of banking data
+
+        Tables are perfect for displaying structured data like account lists.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts — Simple Bank</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- =============================================
+         HEADER
+         ============================================= -->
+    <div class="header">
+        <h1>Simple Bank</h1>
+    </div>
+
+    <!-- =============================================
+         NAVIGATION
+         ============================================= -->
+    <div class="nav">
+        <a href="simple-page.html">Home</a>
+        <a href="table-demo.html" class="nav-active">Accounts</a>
+        <a href="form-demo.html">Open Account</a>
+    </div>
+
+    <!-- =============================================
+         MAIN CONTENT
+         ============================================= -->
+    <div class="container">
+        <h2>All Accounts</h2>
+
+        <!--
+            TABLE STRUCTURE:
+            <table>
+            ├── <thead>         — header section
+            │   └── <tr>        — table row (for column titles)
+            │       ├── <th>    — header cell (bold, centered by default)
+            │       └── <th>
+            ├── <tbody>         — body section
+            │   └── <tr>        — table row (for data)
+            │       ├── <td>    — data cell
+            │       └── <td>
+            └── </table>
+
+            CSS handles:
+            - border-collapse: collapse  (removes double borders)
+            - zebra stripes via nth-child(even)
+            - hover effect on rows
+            - colored header row
+        -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Account No.</th>
+                    <th>Holder Name</th>
+                    <th>Type</th>
+                    <th>Balance (Rs.)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr>
+                    <td>1001</td>
+                    <td>Ravi Kumar</td>
+                    <td>SAVINGS</td>
+                    <td>50,000.00</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                    <td>1002</td>
+                    <td>Priya Sharma</td>
+                    <td>CURRENT</td>
+                    <td>30,000.00</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                </tr>
+                <!-- Row 3 -->
+                <tr>
+                    <td>1003</td>
+                    <td>Amit Verma</td>
+                    <td>SAVINGS</td>
+                    <td>75,000.00</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                </tr>
+                <!-- Row 4 -->
+                <tr>
+                    <td>1004</td>
+                    <td>Sneha Reddy</td>
+                    <td>CURRENT</td>
+                    <td>1,20,000.00</td>
+                    <td><span class="badge badge-active">Active</span></td>
+                </tr>
+                <!-- Row 5 -->
+                <tr>
+                    <td>1005</td>
+                    <td>Vikram Patel</td>
+                    <td>SAVINGS</td>
+                    <td>15,000.00</td>
+                    <td><span class="badge badge-inactive">Inactive</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Link styled as a button -->
+        <p style="margin-top: 15px;">
+            <a href="form-demo.html" class="btn btn-primary">+ Open New Account</a>
+        </p>
+    </div>
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
+    <div class="footer">
+        Simple Bank &copy; 2024 | Training Project
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Day 9 - Simple HTML Page Demo
+
+        Demonstrates:
+        - HTML5 document structure (DOCTYPE, html, head, body)
+        - Headings (h1, h2, h3) for content hierarchy
+        - Paragraphs and text formatting (strong, em)
+        - Links (anchor tags) — internal and external
+        - Images (with alt text placeholder)
+        - Lists — unordered (ul) and ordered (ol)
+        - div and span containers
+        - Horizontal rules (hr) and line breaks (br)
+
+        Open this file directly in a browser by double-clicking it.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Bank — Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- =============================================
+         HEADER — appears at the top of every page
+         ============================================= -->
+    <div class="header">
+        <h1>Simple Bank</h1>
+    </div>
+
+    <!-- =============================================
+         NAVIGATION — links to other pages
+         ============================================= -->
+    <div class="nav">
+        <a href="simple-page.html" class="nav-active">Home</a>
+        <a href="table-demo.html">Accounts</a>
+        <a href="form-demo.html">Open Account</a>
+    </div>
+
+    <!-- =============================================
+         MAIN CONTENT — wrapped in a container div
+         ============================================= -->
+    <div class="container">
+
+        <!-- =============================================
+             1. HEADINGS — h1 through h3
+             Use headings for hierarchy, not for size.
+             Control size with CSS instead.
+             ============================================= -->
+        <h2>Welcome to Simple Bank</h2>
+        <p>Your trusted banking partner since 2024.</p>
+
+        <h3>About Us</h3>
+        <p>Simple Bank provides <strong>secure</strong> and <em>reliable</em> banking
+           services to individuals and businesses across India.</p>
+
+        <!-- =============================================
+             2. TEXT FORMATTING
+             <strong> = bold (important text)
+             <em> = italic (emphasized text)
+             <br> = line break (within a paragraph)
+             <hr> = horizontal rule (section divider)
+             ============================================= -->
+        <p>
+            We offer:<br>
+            <strong>Savings Accounts</strong> — earn interest on your deposits<br>
+            <strong>Current Accounts</strong> — for your business needs<br>
+            <strong>Fixed Deposits</strong> — guaranteed returns
+        </p>
+
+        <hr>
+
+        <!-- =============================================
+             3. LISTS — unordered and ordered
+             <ul> = bullet points (unordered)
+             <ol> = numbered list (ordered)
+             <li> = list item (used in both)
+             ============================================= -->
+        <h2>Our Services</h2>
+
+        <!-- Unordered list — bullet points -->
+        <h3>Account Types</h3>
+        <ul>
+            <li>Savings Account — minimum balance Rs.1,000</li>
+            <li>Current Account — minimum balance Rs.10,000</li>
+            <li>Fixed Deposit — 6.5% annual interest</li>
+        </ul>
+
+        <!-- Ordered list — numbered steps -->
+        <h3>How to Open an Account</h3>
+        <ol>
+            <li>Fill the application form</li>
+            <li>Submit identity documents (Aadhaar, PAN)</li>
+            <li>Make initial deposit</li>
+            <li>Receive your account number</li>
+        </ol>
+
+        <hr>
+
+        <!-- =============================================
+             4. LINKS — internal and external
+             <a href="..."> = anchor tag (creates a clickable link)
+             href = URL or file path to navigate to
+             ============================================= -->
+        <h2>Quick Links</h2>
+        <ul>
+            <!-- Internal links — navigate to other HTML files -->
+            <li><a href="table-demo.html">View All Accounts</a></li>
+            <li><a href="form-demo.html">Open New Account</a></li>
+
+            <!-- External link — opens a different website -->
+            <li><a href="https://www.rbi.org.in" target="_blank">Reserve Bank of India (external)</a></li>
+        </ul>
+
+        <hr>
+
+        <!-- =============================================
+             5. IMAGES
+             <img> is a self-closing tag (no </img>)
+             src = path to the image file
+             alt = text shown if image fails to load (accessibility)
+             width = display width in pixels
+             ============================================= -->
+        <h2>Our Logo</h2>
+        <p>
+            <!-- Image placeholder — replace src with a real image path -->
+            <img src="bank-logo.png" alt="Simple Bank Logo" width="200">
+        </p>
+        <p><em>Image placeholder — replace with an actual logo file.</em></p>
+
+        <hr>
+
+        <!-- =============================================
+             6. DIV and SPAN
+             <div> = block container (takes full width, starts new line)
+             <span> = inline container (stays within text flow)
+             Think of div as a "cardboard box" and span as a "highlighter"
+             ============================================= -->
+        <h2>Account Summary</h2>
+
+        <!-- div groups related content into a block -->
+        <div style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <h3>Ravi Kumar — Account #1001</h3>
+            <p>Type: SAVINGS</p>
+            <!-- span highlights a piece of text within a paragraph -->
+            <p>Balance: <span style="color: green; font-weight: bold;">Rs.50,000.00</span></p>
+            <p>Status: <span style="color: green;">Active</span></p>
+        </div>
+
+        <div style="border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
+            <h3>Priya Sharma — Account #1002</h3>
+            <p>Type: CURRENT</p>
+            <p>Balance: <span style="color: green; font-weight: bold;">Rs.30,000.00</span></p>
+            <p>Status: <span style="color: green;">Active</span></p>
+        </div>
+
+    </div>
+
+    <!-- =============================================
+         FOOTER — appears at the bottom of every page
+         ============================================= -->
+    <div class="footer">
+        Simple Bank &copy; 2024 | Training Project
+    </div>
+
+</body>
+</html>

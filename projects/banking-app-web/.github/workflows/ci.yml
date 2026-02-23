@@ -1,0 +1,38 @@
+name: Banking App CI
+
+# When to run this pipeline
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# What to do
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the code from the repository
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Step 2: Install Java 17 (Temurin distribution)
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    # Step 3: Compile the project
+    - name: Compile with Maven
+      run: mvn compile
+
+    # Step 4: Run all tests
+    - name: Run tests
+      run: mvn test
+
+    # Step 5: Create the deployable JAR
+    - name: Package JAR
+      run: mvn package -DskipTests

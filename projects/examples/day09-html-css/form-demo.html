@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Day 9 - HTML Form Demo
+
+        Demonstrates all common form input types:
+        - text input (account holder name)
+        - number input (account number, initial deposit)
+        - email input (with built-in validation)
+        - password input (PIN — characters are hidden)
+        - radio buttons (account type — choose ONE)
+        - checkboxes (alerts — choose MANY)
+        - select dropdown (branch selection)
+        - textarea (multi-line address input)
+        - submit and reset buttons
+
+        Key concepts:
+        - <form> wraps all inputs
+        - <label> improves accessibility (click label = focus input)
+        - name attribute = field name sent to server
+        - id attribute = unique identifier for label association
+        - required = must be filled before submit
+        - placeholder = hint text shown when empty
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Account — Simple Bank</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- =============================================
+         HEADER
+         ============================================= -->
+    <div class="header">
+        <h1>Simple Bank</h1>
+    </div>
+
+    <!-- =============================================
+         NAVIGATION
+         ============================================= -->
+    <div class="nav">
+        <a href="simple-page.html">Home</a>
+        <a href="table-demo.html">Accounts</a>
+        <a href="form-demo.html" class="nav-active">Open Account</a>
+    </div>
+
+    <!-- =============================================
+         MAIN CONTENT
+         ============================================= -->
+    <div class="container">
+        <h2>Open New Account</h2>
+
+        <!--
+            FORM BASICS:
+            action = URL where form data is sent (our REST API endpoint)
+            method = HTTP method (POST for creating data, GET for searching)
+
+            Note: This form uses action/method for demonstration.
+            In a real app with JavaScript (Day 11), we would remove these
+            and use fetch() instead.
+        -->
+        <form action="/api/accounts" method="POST">
+
+            <!-- =============================================
+                 1. TEXT INPUT — for the account holder's name
+                 type="text" accepts any text
+                 required = must be filled before form submits
+                 placeholder = hint text inside the empty field
+                 ============================================= -->
+            <div class="form-group">
+                <label for="name">Account Holder Name</label>
+                <input type="text" id="name" name="holderName"
+                       placeholder="Enter full name" required>
+            </div>
+
+            <!-- =============================================
+                 2. NUMBER INPUT — for the account number
+                 type="number" only accepts numeric values
+                 min/max = allowed range
+                 ============================================= -->
+            <div class="form-group">
+                <label for="accNo">Account Number</label>
+                <input type="number" id="accNo" name="accountNumber"
+                       min="1000" max="9999" placeholder="e.g. 1004" required>
+            </div>
+
+            <!-- =============================================
+                 3. EMAIL INPUT — with built-in format validation
+                 The browser checks for a valid email format (has @)
+                 ============================================= -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email"
+                       placeholder="ravi@example.com">
+            </div>
+
+            <!-- =============================================
+                 4. PASSWORD INPUT — characters are hidden (dots)
+                 maxlength limits how many characters can be typed
+                 ============================================= -->
+            <div class="form-group">
+                <label for="pin">4-Digit PIN</label>
+                <input type="password" id="pin" name="pin"
+                       maxlength="4" placeholder="Enter PIN">
+            </div>
+
+            <!-- =============================================
+                 5. NUMBER INPUT — for initial deposit amount
+                 step="0.01" allows decimal values (paisa)
+                 ============================================= -->
+            <div class="form-group">
+                <label for="balance">Initial Deposit (Rs.)</label>
+                <input type="number" id="balance" name="balance"
+                       min="0" step="0.01" value="0" required>
+            </div>
+
+            <!-- =============================================
+                 6. RADIO BUTTONS — choose ONE option
+                 All radio buttons with the same "name" form a group.
+                 Only one can be selected at a time.
+                 "checked" pre-selects the default option.
+                 ============================================= -->
+            <div class="form-group radio-group">
+                <label>Account Type</label><br>
+                <label>
+                    <input type="radio" name="type" value="SAVINGS" checked> Savings
+                </label>
+                <label>
+                    <input type="radio" name="type" value="CURRENT"> Current
+                </label>
+            </div>
+
+            <!-- =============================================
+                 7. CHECKBOXES — choose MANY options
+                 Each checkbox is independent — any combination is valid.
+                 "checked" pre-checks a checkbox.
+                 ============================================= -->
+            <div class="form-group">
+                <label>Alert Preferences</label><br>
+                <label>
+                    <input type="checkbox" name="smsAlerts" value="true"> Enable SMS Alerts
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="emailAlerts" value="true" checked> Enable Email Alerts
+                </label>
+            </div>
+
+            <!-- =============================================
+                 8. SELECT DROPDOWN — choose ONE from a list
+                 <option value=""> is a placeholder option
+                 ============================================= -->
+            <div class="form-group">
+                <label for="branch">Branch</label>
+                <select id="branch" name="branch">
+                    <option value="">-- Select Branch --</option>
+                    <option value="MG_ROAD">MG Road, Bangalore</option>
+                    <option value="ANNA_NAGAR">Anna Nagar, Chennai</option>
+                    <option value="BANDRA">Bandra, Mumbai</option>
+                    <option value="CONNAUGHT">Connaught Place, Delhi</option>
+                </select>
+            </div>
+
+            <!-- =============================================
+                 9. TEXTAREA — multi-line text input
+                 rows = visible height (number of text lines)
+                 cols = visible width (approximate character width)
+                 ============================================= -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3"
+                          placeholder="Enter your full address"></textarea>
+            </div>
+
+            <!-- =============================================
+                 10. BUTTONS
+                 type="submit" — sends the form data
+                 type="reset"  — clears all fields to their defaults
+                 ============================================= -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create Account</button>
+                <button type="reset" class="btn btn-secondary">Clear Form</button>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
+    <div class="footer">
+        Simple Bank &copy; 2024 | Training Project
+    </div>
+
+</body>
+</html>
