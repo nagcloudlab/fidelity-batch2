@@ -1,0 +1,354 @@
+
+
+
+--------------------------------------
+1. Project
+--------------------------------------
+
+project-1
+--------
+|
+|-- package-1  ( .java / .class )
+|
+|-- package-2
+| |
+| |--package-2-1 
+| | 
+
+
+
+--------------------------------------
+2. Java File 
+--------------------------------------
+
+-----------------
+PublicDataType.java
+-----------------
+|// package declaration ( optional ) ( 0 .. 1 ) 
+|// import declaration ( optional ) ( 0 .. N ) 
+|// public DataType ( interface | class | enum | annotation | record ) ( Must ) ( 1 )
+|// default DataTypes ( interface | class | enum | annotation | record ) ( optional ) ( 0 .. N )
+-----------------
+
+
+
+--------------------------------------
+3. package declaration
+--------------------------------------
+
+why do we need package declaration?
+- to avoid Type Name conflicts
+- to control access
+- to make searching/locating and usage of classes, interfaces, enumerations, and annotations easier
+
+syntax:
+-----------------
+package package-name;
+-----------------
+
+recommended package naming convention:
+- all lowercase letters
+- company domain name in reverse order ( e.g. com.example )
+- project name ( e.g. myproject )
+- module name ( e.g. mymodule )
+- submodule name ( e.g. mysubmodule )
+
+
+example:
+-----------------
+package com.example.myproject.mymodule.mysubmodule;
+
+
+
+--------------------------------------
+4. import statements
+--------------------------------------
+
+project-1
+|
+| --- package-1 ( A.java , B.java , C.java )
+|
+| --- package-2 ( D.java , E.java , F.java )
+|   | 
+    --- package-2-1 ( G.java , H.java , I.java )
+
+
+example:
+
+package package-1;
+
+//import package-2.D; // import class D from package-2
+import package-2.*; // import all classes from package-2
+import package-2.package-2-1.*; // import all classes from package-2-1
+
+public class A {
+    // code
+    B b;
+    D d;
+    E e; 
+    G g; 
+}
+
+
+--------------------------------------
+5. Data Types
+--------------------------------------
+
+in java we have 2 types data types:
+
+- value data types ( primitive data types )
+  byte, short, int, long, float, double, char, boolean
+
+- reference/object data types ( non-primitive data types )
+  e,g account
+        - account number ( int )
+        - account balance ( double )
+
+
+what is a Class?
+-----------------
+-> blueprint|template|prototype for creating similar objects
+
+class => object
+
+what is an Object?
+-----------------
+
+-> data|info|attributes|properties -> state
+-> functions|methods|              -> behavior
+-> identity
+
+sbi => object
+
+-------------------------------------------
+object's concepts
+------------------------------------------
+
+-> interface | abstraction
+-> implementation | encapsulation
+-> inheritance ( re-use common things from generalized to specialized data types )
+-> polymorphism ( one name many forms )
+
+
+-------------------------------------------
+object's principles aka SOLID principles
+-------------------------------------------
+
+-> Single Responsibility Principle ( SRP ) 
+-> Open for extension-Closed for modification Principle ( OCP )
+-> Liskov Substitution Principle ( LSP )
+-> Interface Segregation Principle ( ISP )
+-> Dependency Inversion Principle ( DIP )
+
+
+-------------------------------------------
+object's design patterns
+-------------------------------------------
+
+-> Creational Design Patterns ( e.g. Singleton, Factory Method, Abstract Factory, Builder, Prototype )
+-> Structural Design Patterns ( e.g. Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy )
+-> Behavioral Design Patterns ( e.g. Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor )
+
+https://refactoring.guru/design-patterns/
+
+
+
+---------------------------------------------
+How define User's data type(s) in Java?
+---------------------------------------------
+
+
+interface | class | enum | annotation | record
+
+
+
+1.interface 
+- to achieve abstraction ( hiding implementation details and showing only essential features )
+
+
+interface syntax:
+-----------------   
+
+[ access-modifier ] interface Interface-Name [ extends Super-Interface-1, Super-Interface-2, ... ] {
+    // variables ( constants ) declarations ( optional )
+    // abstract methods declarations ( optional )
+    // java 8 and above features 
+    // default methods ( optional ) 
+    // static methods ( optional )
+    // java 9 and above features
+    // private methods ( optional )
+}
+
+
+2. class
+- to implement abstraction ( hiding implementation details and showing only essential features )
+
+
+class syntax:
+--------------
+
+__________ _________ class Class-Name  [ extends Super-Class ] 
+[public   ] [abstract]                 [ implements Interface-1, Interface-2, ... ] {
+[         ] [final   ]    // data variables declarations ( optional )
+                          // constructor declarations ( optional )
+                          // method declarations ( optional )
+                          // inner class/interface/enum/annotation declarations ( optional )
+}
+
+
+abstract class -> a class that cannot be instantiated
+final class -> a class that cannot be extended
+
+
+3. enum
+- to define a set of named constants
+e.g. days of the week, months of the year, directions, etc.
+
+enum syntax:
+-----------------
+
+[ access-modifier ] enum Enum-Name {
+    // enum constants declarations ( must )
+    // data variables declarations ( optional )
+    // constructor declarations ( optional )
+    // method declarations ( optional )
+    // inner class/interface/enum/annotation declarations ( optional )
+}
+
+e.g
+-----------------
+public enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+
+
+4. annotation
+- to provide metadata about the code ( e.g. @Override, @Deprecated, @SuppressWarnings, etc. )
+
+annotation syntax:
+-----------------
+[ access-modifier ] @interface Annotation-Name {
+    // annotation elements declarations ( optional )
+}
+
+5. record ( from Java 14 )
+- to define a simple data carrier class ( a class that only contains data variables and their corresponding accessor methods )
+-> dto ( data transfer object ) , vo ( value object ) , pojo ( plain old java object )
+
+record syntax:
+-----------------
+[ access-modifier ] record Record-Name ( data-variable-1 , data-variable-2 , ... ) {
+    // compact constructor ( optional )
+    // static fields and methods ( optional )
+    // instance fields and methods ( optional )
+    // inner class/interface/enum/annotation declarations ( optional )
+}
+
+
+
+-----------------------------------------------
+6. variables
+-----------------------------------------------
+
+- to store data in memory ( e.g. int age = 25; )
+
+variable syntax:
+-----------------
+
+
+[ access-modifier ] [ variable-modifier ] data-type variable-name [ = initial-value ] ;
+
+
+data-types
+----------
+- primitive data types ( byte, short, int, long, float, double, char, boolean ) -> 8
+- reference/object data types ( interface, class, enum, annotation, record ) -> 5
+
+variable-modifiers
+-----------------
+- final ( a variable that cannot be reassigned after it has been initialized )
+- static ( a variable that belongs to the class rather than to any instance of the class )
+- transient ( a variable that is not serialized when the object is serialized )
+- volatile ( a variable that can be accessed by multiple threads and ensures visibility of changes across threads )
+
+access-modifiers
+----------------
+- public ( accessible from anywhere )
+- protected ( accessible within the same package and subclasses )
+- default ( accessible within the same package )
+- private ( accessible only within the same class )
+
+
+
+-------------------------------------------------
+7. methods
+-------------------------------------------------
+
+- to define the behavior of classes and objects
+
+
+method syntax:
+-----------------
+
+[ access-modifier ] [ method-modifier ] return-type method-name ( parameter-list ) [ throws exception-list ] {
+    // arithmetic | relational | logical | bitwise | assignment | other operators
+    // conditional statements
+    // loop statements
+    // invoke other methods
+    result = ...;
+    [ return result; ] // if return-type is not void
+}
+
+method-modifiers
+----------------
+- abstract ( a method that does not have a body and must be implemented by subclasses )
+- default ( a method that has a body and can be overridden by implementing classes in an interface
+- final ( a method that cannot be overridden by subclasses )
+- static ( a method that belongs to the class rather than to any instance of the class )
+- synchronized ( a method that can be accessed by only one thread at a time )
+- native ( a method that is implemented in a language other than Java, typically in C or C++ )
+- strictfp ( a method that is subject to strict floating-point calculations )
+
+
+8. constructors
+-------------------------------------------------
+
+in java object creation is a 2 step process:
+1. memory allocation ( allocate memory for the object ) -> 'new' keyword
+2. object initialization ( initialize the object with default values or with values provided by the constructor ) -> constructor
+
+constructor syntax:
+-----------------
+
+[ access-modifier ] Class-Name ( parameter-list ) {
+    // constructor body
+    // initialize the object with default values or with values provided by the constructor
+}
+
+
+
+
+Java Language Naming Conventions
+--------------------------------------
+
+keywords ( 50 keywords in Java 17 ) -> lowercase letters ( e.g. public, class, if, else, etc. )
+package names -> lowercase letters ( e.g. com.example.myproject.mymodule.mysubmodule )
+Type Names ( interface, class, enum, annotation, record ) -> PascalCase ( e.g. MyClass, MyInterface, MyEnum, MyAnnotation, MyRecord )
+varibles & methods -> camelCase ( e.g. myVariable, myMethod() )
+constants -> UPPERCASE_LETTERS_WITH_UNDERSCORES ( e.g. MAX_VALUE, MIN_VALUE, etc. )
+
+--------------------------------------------
+
+
+
+Java Build Tools
+-------------------
+
+    -> automate the process of compiling, packaging, and deploying Java applications
+
+    1. Apache Maven -> XML based configuration file ( pom.xml )
+    2. Gradle -> Groovy or Kotlin based configuration file ( build.gradle or build.gradle.kts )
+    3. Sbt -> Scala based configuration file ( build.sbt )
+
+
+------------------------------------------
