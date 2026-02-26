@@ -16,4 +16,96 @@ Types of data structure:
 -> multiple value data structure / non-primitive data structure
     - array
     - linked list
+    ..
+
+
+
+--------------------------
+java collection F.W
+----------------------
+
+- ready to use data structure
+
+types of collections
+----------------------
+
+1. list
+
+    -> index based collection
+    -> duplicate allowed
+    -> insertion order is preserved
+
+2. set
+
+    -> no index based collection
+    -> duplicate not allowed
+    -> insertion order is not preserved
+
+3. map
+
+    -> key value pair collection
+    -> duplicate key not allowed
+    -> insertion order is not preserved
+
+4. queue
+
+    -> first in first out collection
+    -> duplicate allowed
+    -> insertion order is preserved
+
+-----------------------
+collection F.W classes
+-----------------------
+
+
+1. list
+
+  -> ArrayList ( dynamic array, not synchronized )
+  -> LinkedList ( doubly linked list, not synchronized )
+
+  concurrent list implementations:
+
+  -> CopyOnWriteArrayList ( thread-safe variant of ArrayList )
+  -> ConcurrentLinkedQueue ( thread-safe variant of LinkedList )
+  -> Vector ( dynamic array, synchronized, legacy class )
+
+2. set
+
+  -> HashSet ( hash table based, not synchronized )
+  -> LinkedHashSet ( hash table based, insertion order preserved, not synchronized )
+  -> TreeSet ( red-black tree based, sorted order, not synchronized )
+
+  concurrent set implementations:
+    -> CopyOnWriteArraySet ( thread-safe variant of HashSet )
+
+3. map
+
+  -> HashMap ( hash table based, not synchronized )
+  -> LinkedHashMap ( hash table based, insertion order preserved, not synchronized )
+  -> TreeMap ( red-black tree based, sorted order, not synchronized )
+
+  concurrent map implementations:
+    -> ConcurrentHashMap ( thread-safe variant of HashMap )
+    -> ConcurrentSkipListMap ( thread-safe variant of TreeMap )
+
+4. queue
+
+  -> LinkedList ( doubly linked list, not synchronized )
+  -> PriorityQueue ( priority queue based on heap, not synchronized )
+  -> ArrayDeque ( resizable array, not synchronized )
+
+-------------------------------
+Collection F.W Hierarchy
+-------------------------------
+
+good java module/f.w design
+------------------------------
+
+top-level: interfaces
+middle-level: abstract classes
+bottom-level: classes
+
+
+https://medium.com/@shubhamjha642/mastering-java-collections-in-detail-a-complete-guide-with-code-diagrams-and-use-cases-ec2fc9724c11
+
 
