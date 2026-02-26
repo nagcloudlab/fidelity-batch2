@@ -1,0 +1,19 @@
+
+
+
+What is data structure?
+
+- memory layout of data
+- to do Create, Read, Update, Delete, search, sort, traversal, etc. on data
+
+Types of data structure:
+-------------------------
+
+-> single value data structure / primitive data structure
+    - int, float, char, bool, etc.
+    - reference variable..
+
+-> multiple value data structure / non-primitive data structure
+    - array
+    - linked list
+
