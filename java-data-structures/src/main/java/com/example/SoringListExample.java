@@ -41,7 +41,7 @@ public class SoringListExample {
         accounts.add(new Account("454656", 2000));
 
         displayAccounts(accounts);
-        Collections.sort(accounts);
+        //Collections.sort(accounts);
         System.out.println("After sorting:");
         displayAccounts(accounts);
 

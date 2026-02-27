@@ -49,20 +49,16 @@ public class Account /* extends Object */ implements Comparable<Account> {
 
     @Override
     public int hashCode() {
-        return this.accountNumber.hashCode();
+        return accountNumber.hashCode(); // hash code based on account number
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        Account account = (Account) obj;
-        return accountNumber.equals(account.accountNumber);
-    }
-}
+        if (this == obj) return true; // check reference equality
+        if (obj == null || getClass() != obj.getClass()) return false; // check type
 
-// abc == abc => 0
-// abc == Abc => +ve
-// Abc == abc => -ve
+        Account other = (Account) obj; // cast to Account
+        return accountNumber.equals(other.accountNumber); // check logical equality based on account number
+    }
+
+}
