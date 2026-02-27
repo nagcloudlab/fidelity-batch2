@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="banking-app" />
+        <module name="java-data-structures" />
+        <module name="banking-app-console" />
+        <module name="day03-exceptions" />
+        <module name="lambda-streams-demo" />
+        <module name="day04-collections" />
+        <module name="day05-data-structures" />
+        <module name="day07-file-handling" />
+        <module name="java-exceptions" />
+        <module name="banking-app-web" />
+        <module name="day01-java-basics" />
+        <module name="day02-oop" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="banking-app-web" options="-parameters" />
+    </option>
+  </component>
+</project>

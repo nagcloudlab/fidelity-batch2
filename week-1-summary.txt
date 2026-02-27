@@ -1,0 +1,19 @@
+
+
+
+
+Learning Java
+------------------
+
+level-1 : know how to bring data -> data types
+level-2 : know how process the data -> data-structures aka collections
+level-3 : know how to process data declaratively -> functional programming aka streams
+
+--------------------------------------------
+
+week-2:
+
+    -> IO 
+    -> framework -> spring boot
+
+ -----------------------------------------   

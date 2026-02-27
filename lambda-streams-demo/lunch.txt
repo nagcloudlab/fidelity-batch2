@@ -1,0 +1,11 @@
+chicken briyani
+mutton briyani
+veg briyani
+egg briyani
+veg fried rice
+chicken fried rice
+mutton fried rice
+egg fried rice
+veg noodles
+chicken noodles
+mutton noodles
