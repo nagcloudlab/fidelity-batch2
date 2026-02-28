@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 
 public class SavingsAccount extends Account {
 
-    private static Logger logger = org.slf4j.LoggerFactory.getLogger(BankApp.class);
+    private static Logger logger = org.slf4j.LoggerFactory.getLogger(SavingsAccount.class);
 
     private double interestRate;
     private static final double MINIMUM_BALANCE = 1000.0;
