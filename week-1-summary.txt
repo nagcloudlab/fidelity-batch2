@@ -5,13 +5,12 @@ week-1
 ------------------
 
 level-1 : know how to bring data -> data types
-level-2 : know how process the data -> data-structures aka collections
+level-2 : know how process the data -> data-structures + algorithms aka collections
 level-3 : know how to process data declaratively -> functional programming aka streams
 
 --------------------------------------------
 week-2:
-
-    -> IO 
-    -> framework -> spring boot
-
+    -> IO operations & jdbc 
+    -> spring boot + spring data jpa
+    -> spring web ( pages + rest api )
  -----------------------------------------   

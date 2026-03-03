@@ -1,0 +1,49 @@
+
+
+common IO sources:
+------------------------
+- standard input (stdin) & standard output (stdout)
+- files
+- network sockets
+- buffers in memory
+
+how to I/O in Java?
+-----------------------
+
+- java.io package
+- java.nio package (New I/O)
+
+types of I/O streams:
+------------------------
+- byte streams (InputStream, OutputStream)
+    - read and write data in bytes
+    - suitable for binary data (images, audio, etc.)
+- character streams (Reader, Writer)
+    - read and write data in characters
+    - suitable for text data (strings, files, etc.)
+    - unicode support
+
+IO stream  classes:
+----------------------
+
+file input/output streams:
+- FileInputStream: reads bytes from a file
+- FileOutputStream: writes bytes to a file
+- FileReader: reads characters from a file
+- FileWriter: writes characters to a file
+
+buffered streams:
+- BufferedInputStream: buffers bytes for efficient reading
+- BufferedOutputStream: buffers bytes for efficient writing
+- BufferedReader: buffers characters for efficient reading
+- BufferedWriter: buffers characters for efficient writing
+
+data streams:
+- DataInputStream: reads primitive data types (int, double, etc.)
+- DataOutputStream: writes primitive data types (int, double, etc.)
+
+object streams:
+- ObjectInputStream: reads objects from a stream
+- ObjectOutputStream: writes objects to a stream
+
+...
