@@ -1,0 +1,61 @@
+
+
+
+Limitations of raw-file-system to maintain business data
+-----------------------------------------------------------
+
+-> Raw-file-system is not designed to handle complex data relationships and transactions,
+   which are common in business applications.
+   It lacks features such as data integrity, concurrency control, and scalability, making it difficult to manage and maintain business data effectively.
+
+-> Raw-file-system does not provide built-in support for data validation, indexing, and querying,
+   which are essential for efficient data management in business applications.
+   This can lead to data inconsistencies, slow performance, and difficulties in retrieving and analyzing data.
+
+
+Solution: Using a Database Management System (DBMS)
+-----------------------------------------------------------
+
+-> A Database Management System (DBMS) is designed to handle complex data relationships and transactions,
+   making it suitable for managing business data effectively.
+   It provides features such as data integrity, concurrency control, and scalability, ensuring that business data is maintained accurately and efficiently.
+
+   e.g Relational Database Management Systems (RDBMS) like MySQL, PostgreSQL, and Oracle,
+       which use structured query language (SQL) for data management.
+
+--------------------------------------------------------------------------
+
+https://drive.google.com/file/d/1BdnvBMCRkt6IJDDgzT-KzfceNfJdcsVK/view
+https://drive.google.com/file/d/16U6oFQBA43DXVKn_vMJqIqYc5fA-mhYz/view?usp=sharing
+
+
+----------------------------------------------------------------------------------------------
+
+
+Java Application -via JDBC (Java Database Connectivity) to interact with a sql database
+java.sql.* -> JDBC api
+
+steps to use JDBC api
+-----------------------
+
+1. Load the JDBC driver: This step involves loading the appropriate JDBC driver for the database you are using (e.g., MySQL, PostgreSQL, Oracle).
+2. Create TCP connection: Establish a connection to the database using the DriverManager class, providing the database URL, username, and password.
+3. Create a Statement object: This object is used to execute SQL queries against the database.
+4. Execute SQL queries: Use the Statement object to execute SQL queries (e.g., SELECT, INSERT, UPDATE, DELETE) and retrieve results if necessary.
+5. Process the results: If the query returns results (e.g., SELECT), process the ResultSet object to access the data.
+6. Close the connection: After all operations are completed, close the database connection to free up resources.
+7. Handle exceptions: Implement error handling to manage any SQL exceptions that may occur during database operations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
