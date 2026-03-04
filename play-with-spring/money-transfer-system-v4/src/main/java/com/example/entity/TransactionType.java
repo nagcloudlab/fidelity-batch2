@@ -1,4 +1,6 @@
 package com.example.entity;
 
-public class TransactionType {
+public enum TransactionType {
+    DEPOSIT,
+    WITHDRAWAL,
 }

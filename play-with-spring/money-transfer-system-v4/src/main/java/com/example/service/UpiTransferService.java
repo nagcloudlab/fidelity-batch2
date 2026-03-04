@@ -2,13 +2,18 @@ package com.example.service;
 
 
 import com.example.entity.Account;
+import com.example.entity.Transaction;
+import com.example.entity.TransactionType;
 import com.example.repository.AccountRepository;
+import com.example.repository.TransactionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 /**
  * authors: bar
@@ -26,12 +31,15 @@ public class UpiTransferService implements TransferService {
     private static final Logger logger = LoggerFactory.getLogger(UpiTransferService.class);
 
     private AccountRepository accountRepository;
+    private TransactionRepository transactionRepository;
 
     // Constructor injection of the AccountRepository dependency
     @Autowired
-    public UpiTransferService(AccountRepository accountRepository) {
+    public UpiTransferService(AccountRepository accountRepository,
+                              TransactionRepository transactionRepository) {
         this.accountRepository = accountRepository;
-        logger.info("UpiTransferService created with AccountRepository: {}", accountRepository.getClass().getSimpleName());
+        this.transactionRepository = transactionRepository;
+        logger.info("UpiTransferService constructor");
     }
 
     @Override
@@ -44,7 +52,8 @@ public class UpiTransferService implements TransferService {
 
         // Fetch accounts using the repository
         Account fromAccount = accountRepository.findById(fromAccountId)
-                .orElseThrow(() -> {;
+                .orElseThrow(() -> {
+                    ;
                     logger.error("From account {} not found", fromAccountId);
                     return new RuntimeException("From account not found");
                 });
@@ -73,6 +82,23 @@ public class UpiTransferService implements TransferService {
         }
 
         accountRepository.save(toAccount);
+
+        // Log the transaction (dummy implementation)
+        Transaction debitTransaction = new Transaction();
+        debitTransaction.setAccount(fromAccount);
+        debitTransaction.setAmount(amount);
+        debitTransaction.setType(TransactionType.WITHDRAWAL);
+        debitTransaction.setTransactionDate(LocalDateTime.now());
+        debitTransaction.setDescription("UPI transfer to account " + toAccountId);
+        transactionRepository.save(debitTransaction);
+
+        Transaction creditTransaction = new Transaction();
+        creditTransaction.setAccount(toAccount);
+        creditTransaction.setAmount(amount);
+        creditTransaction.setType(TransactionType.DEPOSIT);
+        creditTransaction.setTransactionDate(LocalDateTime.now());
+        creditTransaction.setDescription("UPI transfer from account " + fromAccountId);
+        transactionRepository.save(creditTransaction);
 
     }
 }
