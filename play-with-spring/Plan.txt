@@ -1,0 +1,11 @@
+
+
+v1: money-transfer-system -> SOLID principles
+v2: money-transfer-system -> with spring framework implementing SOLID principles
+v3: money-transfer-system -> XML , annotations and java configuration
+v4: money-transfer-system -> spring-data project
+v5: money-transfer-system -> spring-boot , how to todo automatic configuration
+v6: money-transfer-system -> tradition web application with spring-mvc
+v7: money-transfer-system -> RESTful web service with spring-mvc
+
+-------------------------------------------------------------------------
