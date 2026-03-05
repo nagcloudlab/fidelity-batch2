@@ -5,32 +5,34 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "accounts")
 public class Account implements Comparable<Account>, Serializable {
 
-    private static Logger logger = LoggerFactory.getLogger(Account.class);
+    private static final Logger logger = LoggerFactory.getLogger(Account.class);
 
     @Id
     @Column(name = "account_number", nullable = false, unique = true)
     private String accountNumber;
+
     @Column(name = "account_holder_name", nullable = false)
     private String accountHolderName;
+
     private double balance;
+
     @Column(name = "account_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private AccountType accountType;
+
+    public Account() {
+    }
 
     public Account(String accountNumber, String accountHolderName, double balance, AccountType accountType) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
         this.balance = balance;
         this.accountType = accountType;
-    }
-
-    public Account() {
     }
 
     public String getAccountNumber() {
@@ -49,22 +51,23 @@ public class Account implements Comparable<Account>, Serializable {
         return accountType;
     }
 
-    public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            logger.info("Deposited {} to account {}, new balance: {}", amount, accountNumber, balance);
-        }else{
-            throw new IllegalArgumentException("Invalid deposit amount");
+    public void debit(double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Debit amount must be positive");
         }
+        if (amount > balance) {
+            throw new IllegalArgumentException("Insufficient balance");
+        }
+        balance -= amount;
+        logger.info("Debited {} from account {}, new balance: {}", amount, accountNumber, balance);
     }
 
-    public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            logger.info("Withdrew {} from account {}, new balance: {}", amount, accountNumber, balance);
-        }else{
-            throw new IllegalArgumentException("Insufficient balance or invalid amount");
+    public void credit(double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Credit amount must be positive");
         }
+        balance += amount;
+        logger.info("Credited {} to account {}, new balance: {}", amount, accountNumber, balance);
     }
 
     @Override
@@ -77,7 +80,6 @@ public class Account implements Comparable<Account>, Serializable {
                 '}';
     }
 
-    //accountNumber -> equals and hashCode methods for proper functioning in collections
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -91,9 +93,8 @@ public class Account implements Comparable<Account>, Serializable {
         return accountNumber.hashCode();
     }
 
-
-    @Override    public int compareTo(Account other) {
+    @Override
+    public int compareTo(Account other) {
         return this.accountNumber.compareTo(other.accountNumber);
     }
-
 }

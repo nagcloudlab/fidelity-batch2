@@ -3,24 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>mts</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Home | Money Transfer System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">MTS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/transfer">Fund Transfer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/transfer/history">Transaction History</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
-    <h1 class="display-1">Money Transfer System</h1>
-    <p>This is the home page of the MTS application.</p>
-    <hr/>
+    <div class="row justify-content-center text-center mb-5">
+        <div class="col-md-8">
+            <h1 class="display-4 fw-bold text-primary">Money Transfer System</h1>
+            <p class="lead text-muted">A secure and simple platform for managing fund transfers between accounts.</p>
+        </div>
+    </div>
 
-    <nav class="nav">
-        <a class="nav-link" href="/transfer">Transfer</a>
-        <a class="nav-link" href="/transfer/history">Transfer-History</a>
-    </nav>
-
-    <hr/>
-
+    <div class="row justify-content-center g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Fund Transfer</h5>
+                    <p class="card-text text-muted">Transfer funds between accounts quickly and securely.</p>
+                    <a href="/transfer" class="btn btn-primary">Make a Transfer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Transaction History</h5>
+                    <p class="card-text text-muted">View all past transactions with filtering by account and date.</p>
+                    <a href="/transfer/history" class="btn btn-outline-primary">View History</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<footer class="mt-5 py-3 bg-light text-center text-muted border-top">
+    <div class="container">
+        <small>Money Transfer System &copy; 2025 | Spring Boot Training</small>
+    </div>
+</footer>
 
 </body>
 </html>

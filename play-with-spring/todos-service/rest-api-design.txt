@@ -1,0 +1,66 @@
+
+
+steps to design a REST API:
+--------------------------------
+
+e.g todos-service
+
+1. know the resources(s) you want to expose to the clients.
+
+    - todos
+    - users
+    - projects
+
+    /api/v1/todos
+    /api/v1/users
+    /api/v1/projects
+
+2. relationship between the resources
+
+    - a user can have many todos
+    - a project can have many todos
+
+    /api/v1/users/{userId}/todos
+    /api/v1/projects/{projectId}/todos
+
+3. know resource representation
+
+    - json
+    - xml
+
+    {
+        "id": 1,
+        "title": "Buy groceries",
+        "description": "Milk, Bread, Eggs",
+        "completed": false,
+        "userId": 1,
+        "projectId": 1
+    }
+
+4. know the actions / operations  via HTTP-methods
+
+    - GET /api/v1/todos - get all todos
+    - GET /api/v1/todos/{id} - get a specific todo by id
+    - POST /api/v1/todos - create a new todo
+    - PUT /api/v1/todos/{id} - update an existing todo
+    - DELETE /api/v1/todos/{id} - delete a specific todo by id
+    - HEAD /api/v1/todos/{id} - get the headers of a specific todo by id
+    - OPTIONS /api/v1/todos - get the supported HTTP methods for the todos resource
+    - PATCH /api/v1/todos/{id} - partially update an existing todo
+
+5. Request & Response Headers
+
+    - Content-Type: application/json
+    - Authorization: Bearer <token
+    - Accept: application/json
+
+6. Status Codes
+
+    - 200 OK - successful GET, PUT, PATCH, DELETE
+    - 201 Created - successful POST
+    - 204 No Content - successful DELETE with no response body
+    - 400 Bad Request - invalid request data
+    - 401 Unauthorized - missing or invalid authentication token
+    - 403 Forbidden - insufficient permissions to access the resource
+    - 404 Not Found - resource not found
+    - 500 Internal Server Error - server error

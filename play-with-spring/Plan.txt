@@ -19,3 +19,54 @@ Client( browser)  <-----------> Server-App ------------------> Database
 
 
 -------------------------------------------------------------------------
+
+
+
+How to impleemnt REST api , if im Java Programmer?
+
+-> JAX-RS spec (Java API for RESTful Web Services) 
+
+   - Jersey (Reference Implementation)
+   - RESTEasy (JBoss implementation)
+
+- Spring Framework with Spring-boot
+
+   - Spring Web MVC
+   - Spring WebFlux (Reactive programming)
+
+
+
+----------------------------------------------------------------------------
+
+im Java Programmer, I want develop Microservices, which framework should I choose?
+
+- Spring-boot with Spring Cloud (Netflix OSS, Spring Cloud Config, Spring Cloud Gateway, etc.)
+- Quarkus (Kubernetes-native Java stack)
+- Micronaut (Modern JVM-based framework for building modular, easily testable microservice applications)
+- Helidon (Lightweight Java microservices framework)
+
+----------------------------------------------------------------------------
+
+- Container platforms
+    - Docker
+    - Podman
+    - Containerd
+    - CRI-O
+
+
+- Container Orchestration
+    - Kubernetes
+
+--------------------------------------------------------------------------------
+Monitoring and Observability
+------------------------------------------------------------------------------
+
+- Prometheus (Monitoring and alerting toolkit)
+- Grafana (Visualization and analytics platform)
+- Jaeger (Distributed tracing system)
+- Zipkin (Distributed tracing system)
+- ELK Stack (Elasticsearch, Logstash, Kibana) for log management and analysis
+- OpenTelemetry (Observability framework for cloud-native software)
+..
+
+-------------------------------------------------------------------------------

@@ -1,55 +1,79 @@
 package com.example.web;
 
-
-import com.example.dto.TransferRequestDto;
-import com.example.dto.TransferResponseDto;
+import com.example.dto.FundTransferRequest;
+import com.example.dto.FundTransferResponse;
 import com.example.entity.Transaction;
-import com.example.repository.TransactionRepository;
 import com.example.service.TransferService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/transfer")
+@RequestMapping("/transfer")
 public class TransferController {
 
-    private TransferService transferService;
-    private TransactionRepository transactionRepository;
+    private static final Logger logger = LoggerFactory.getLogger(TransferController.class);
 
-    @Autowired
-    public TransferController(TransferService transferService, TransactionRepository transactionRepository) {
+    private final TransferService transferService;
+
+    public TransferController(TransferService transferService) {
         this.transferService = transferService;
-        this.transactionRepository = transactionRepository;
     }
 
-    // GET /transfer  -> show transfer form
-    @RequestMapping(method = RequestMethod.GET)
-    public String showTransferForm() {
-        //... add any necessary model attributes here ...
-        return "transfer-form"; // return the name of the view (e.g., transfer-form.html)
+    @GetMapping
+    public String showTransferForm(Model model) {
+        model.addAttribute("transferRequest", new FundTransferRequest());
+        return "transfer-form";
     }
 
-    // POST /transfer -> process transfer form
-    @RequestMapping(method = RequestMethod.POST)
-    public String processTransfer(@ModelAttribute TransferRequestDto transferRequestDto, Model model ) {
-        transferService.transfer(transferRequestDto.getFromAccount(), transferRequestDto.getToAccount(), transferRequestDto.getAmount());
-        TransferResponseDto response = new TransferResponseDto("success", "Transfer completed successfully.");
-        model.addAttribute("response", response);
-        return "transfer-status"; // return the name of the view to show transfer status (e.g., transfer-status.html)
+    @PostMapping
+    public String processTransfer(@Valid @ModelAttribute("transferRequest") FundTransferRequest request,
+                                  BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "transfer-form";
+        }
+
+        try {
+            transferService.transfer(
+                    request.getSenderAccountNumber(),
+                    request.getBeneficiaryAccountNumber(),
+                    request.getAmount()
+            );
+            model.addAttribute("response",
+                    new FundTransferResponse("success", "Fund transfer of " + request.getAmount()
+                            + " from " + request.getSenderAccountNumber()
+                            + " to " + request.getBeneficiaryAccountNumber()
+                            + " completed successfully."));
+        } catch (Exception e) {
+            logger.error("Fund transfer failed: {}", e.getMessage());
+            model.addAttribute("response", new FundTransferResponse("failure", e.getMessage()));
+        }
+        return "transfer-status";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/history")
-    public String showTransferHistory(Model model) {
-        List<Transaction> transactions= transactionRepository.findAll();
+    @GetMapping("/history")
+    public String showTransactionHistory(
+            @RequestParam(required = false) String accountNumber,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fromDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate toDate,
+            Model model) {
+        List<Transaction> transactions = transferService.getTransactionHistory(accountNumber, fromDate, toDate);
         model.addAttribute("transactions", transactions);
-        return "transfer-history"; // return the name of the view to show transfer history (e.g., transfer-history.html)
+        model.addAttribute("accountNumber", accountNumber);
+        model.addAttribute("fromDate", fromDate);
+        model.addAttribute("toDate", toDate);
+        return "transfer-history";
     }
-
 }
