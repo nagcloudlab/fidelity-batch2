@@ -1,0 +1,17 @@
+
+
+
+week-1
+------------------
+
+level-1 : know how to bring data -> data types
+level-2 : know how process the data -> data-structures + algorithms aka collections
+level-3 : know how to process data declaratively -> functional programming aka streams
+
+week-2:
+------------------
+
+- how persis data -> file system, database
+- how to spring-framework with boot
+- how to use spring-boot-starter-data-jpa to persist data in database
+- how to use spring-boot-starter-web to create traditional web application & RESTful web services

@@ -1,0 +1,71 @@
+
+
+UI -> data + style + interaction
+Web-UI -> HTML + CSS + JS + browser Apis (DOM, Fetch, Storage, etc.)
+
+
+what javascript programming can do on HTML-page?
+
+using browser APIs, JavaScript can do magic on HTML-page, such as:
+
+browser Apis -> w3c recommendation -> implemented by browser vendors natively ( C++ ) -> abstracted as javascript object & functions -> can be used by developers to manipulate the web page and interact with the user
+
+using DOM API, JavaScript can manipulate the structure and content of the web page, such as:
+-> create, read, update, delete (CRUD) HTML elements
+-> handle user interactions (clicks, form submissions, etc.)
+-> can create dynamic content (e.g., add new elements, change styles, etc.)
+
+Use XMLHttpRequest or Fetch API to make asynchronous requests to the server and update the web page without reloading it.
+-> fetch data from server (AJAX, Fetch API)
+
+Use timers API to schedule tasks to run after a certain delay or at regular intervals.
+-> can do actions on timeout/interval (setTimeout, setInterval)
+
+-> ..
+
+
+Problems/Limitations/Complexities working with browser APIs directly:
+-------------------------------------------------------------------
+
+1. Browser compatibility: Different browsers may implement APIs differently, leading to inconsistent behavior across platforms.
+2. Complexity: Working with browser APIs directly can be complex and verbose, especially for common tasks like DOM manipulation and event handling.
+3. Performance: Directly manipulating the DOM can lead to performance issues, especially if not done
+efficiently (e.g., causing reflows and repaints).
+4. Security: Directly using browser APIs can expose security vulnerabilities if not handled properly (e.g., cross-site scripting (XSS) attacks).
+5. Maintenance: Code that directly interacts with browser APIs can be harder to maintain and debug,especially as the application grows in size and complexity.
+6. Lack of abstraction: Directly using browser APIs can lead to code that is tightly coupled
+
+MVC based javascript frameworks
+-----------------------------------------------
+
+-> backbone.js, angular.js, ember.js, dojo, etc.
+
+
+Component-based JavaScript frameworks
+-----------------------------------------------
+
+-> react.js  ( facebook )
+-> Angular ( google )
+-> Vue.js ( Evan You )
+...
+
+---------------------------------------------------------------
+
+Learning steps for Angular:
+----------------------------
+
+-> typescript ( superset of JavaScript, adds static typing and other features )
+-> data-binding ( one-way, two-way )
+-> components ( building blocks of Angular applications )
+-> directives ( custom HTML attributes that can be used to manipulate the DOM )
+-> pipes ( used to transform data in templates )
+-> services ( used to share data and logic across components )
+
+----------------------
+
+-> forms ( template-driven forms, reactive forms )
+-> routing ( navigating between different views in the application )
+-> http client ( making HTTP requests to the server )
+-> state management ( managing application state using libraries like NgRx or Akita )
+
+------------------------
