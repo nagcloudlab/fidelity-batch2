@@ -12,6 +12,15 @@ week-2:
 ------------------
 
 - how persis data -> file system, database
-- how to spring-framework with boot
+- how to use spring-framework with boot
 - how to use spring-boot-starter-data-jpa to persist data in database
 - how to use spring-boot-starter-web to create traditional web application & RESTful web services
+
+
+
+week-3:
+--------------------
+
+-> understand the devops culture
+-> how to implement devops culture for java application ( ci/cd pipeline )
+   
