@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                echo "Compile"
+                dir('calculation-service') {
+                    sh 'mvn clean compile'
+                }
             }
         }
         stage('Unit Test') {
