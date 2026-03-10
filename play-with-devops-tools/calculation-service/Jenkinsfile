@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                dir('calculation-service') {
+                dir('play-with-devops-tools/calculation-service') {
                     sh 'mvn clean compile'
                 }
             }
