@@ -1,0 +1,13 @@
+
+
+
+How to automate testing?
+------------------------
+
+- Unit Testing -> Junit + Mockito
+- Integration Testing -> Spring Boot Test + Testcontainers
+- API Testing -> REST Assured , Postman
+- UI Testing -> Selenium , Playwright
+- Performance Testing -> JMeter , Gatling
+- Security Testing -> OWASP ZAP , Burp Suite
+- Source Code Analysis -> SonarQube , Checkstyle

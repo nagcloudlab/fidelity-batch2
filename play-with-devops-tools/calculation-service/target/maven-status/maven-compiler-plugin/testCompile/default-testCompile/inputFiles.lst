@@ -1,1 +1,3 @@
-/Users/nag/fidelity-batch2/play-with-devops-tools/calculation-service/src/test/java/com/example/CalculatorTest.java
+/Users/nag/fidelity-batch2/play-with-devops-tools/calculation-service/src/test/java/com/example/calculationservice/CalculatorApiTest.java
+/Users/nag/fidelity-batch2/play-with-devops-tools/calculation-service/src/test/java/com/example/calculationservice/CalculatorServiceTest.java
+/Users/nag/fidelity-batch2/play-with-devops-tools/calculation-service/src/test/java/com/example/calculationservice/CalculatorIntegrationTest.java

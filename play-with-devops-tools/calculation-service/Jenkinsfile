@@ -1,0 +1,26 @@
+
+pipeline {
+    agent any
+    stages {
+        stage('Compile') {
+            steps {
+                echo "Compile"
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                echo "Unit Test"
+            }
+        }
+        stage('Integration Test') {
+            steps {
+                echo "Integration Test"
+            }
+        }
+        stage('API Test') {
+            steps {
+                echo "API Test"
+            }
+        }
+    }
+}

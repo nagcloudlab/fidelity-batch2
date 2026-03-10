@@ -1,7 +1,9 @@
-package com.example;
+package com.example.calculationservice.service;
 
-// Unit
-public class Calculator {
+import org.springframework.stereotype.Service;
+
+@Service
+public class CalculatorService {
 
     public int add(int a, int b) {
         return a + b;
@@ -21,5 +23,4 @@ public class Calculator {
         }
         return (double) a / b;
     }
-
 }
