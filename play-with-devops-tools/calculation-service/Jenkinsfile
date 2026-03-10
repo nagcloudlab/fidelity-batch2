@@ -11,17 +11,30 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                echo "Unit Test"
+                dir('play-with-devops-tools/calculation-service') {
+                    sh 'mvn test -Punit-tests'
+                }
             }
         }
         stage('Integration Test') {
             steps {
-                echo "Integration Test"
+                dir('play-with-devops-tools/calculation-service') {
+                    sh 'mvn test -Pintegration-tests'
+                }
             }
         }
         stage('API Test') {
             steps {
-                echo "API Test"
+                dir('play-with-devops-tools/calculation-service') {
+                    sh 'mvn test -Papi-tests'
+                }
+            }
+        }
+        stage('Build/Package') {
+            steps {
+                dir('play-with-devops-tools/calculation-service') {
+                    sh 'mvn clean package -DskipTests'
+                }
             }
         }
     }

@@ -2,11 +2,13 @@ package com.example.calculationservice;
 
 import com.example.calculationservice.service.CalculatorService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@Tag("unit")
 class CalculatorServiceTest {
 
     CalculatorService calculatorService;
