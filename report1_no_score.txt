@@ -1,0 +1,283 @@
+
+1. Amrutha Amrutha
+   Q1 Comments:
+   - All fields correct (rollNo int, name String, marks1/marks2/marks3 double)
+   - Default and parameterized constructors both present and correct
+   - calculateTotal(), calculateAverage(), calculateGrade() all correct
+   - displayResult() + main() with 2 students using parameterized constructor
+   Q2 Comments:
+   - Base Account class with fields, constructor, deposit(), withdraw() correct
+   - calculateInterest() in base returns void instead of double
+   - SavingsAccount(4%) and CurrentAccount(2%) override with @Override correct
+   - Polymorphism with Account[] array and for-each loop correct
+
+2. BalajiN M
+   Q1 Comments:
+   - All fields, constructors, methods correct
+   - displayResult() + main() with 2 students correct
+   Q2 Comments:
+   - Full Account class with all required fields and methods
+   - Both subclasses override correctly with @Override
+   - Full polymorphism with Account[] array and for-each loop
+
+3. BodduAshok Reddy
+   Q1 Comments:
+   - All fields and constructors correct
+   - Methods named calTotal()/calAverage() instead of calculateTotal()/calculateAverage()
+   - Grade logic and displayResult() + main() with 2 students correct
+   Q2 Comments:
+   - Base Account class with all methods correct
+   - Both subclasses override with @Override at correct rates
+   - Full polymorphism with Account[] array and loop
+
+4. CalvinAbel Mathews
+   Q1 Comments:
+   - All fields, constructors, methods correct
+   - main() explicitly calls all methods on 2 students
+   Q2 Comments:
+   - Base Account class complete with all required methods
+   - Both subclasses override correctly with @Override
+   - Account[] array with 3 accounts and for loop demonstrating polymorphism
+
+5. DileepChepuri
+   Q1 Comments:
+   - All fields, constructors, methods correct
+   - displayResult() + main() with 2 students correct
+   Q2 Comments:
+   - Base Account class complete with all methods
+   - Both subclasses override with @Override at correct rates
+   - CurrentAccount print label says "Savings Account Interest" (copy-paste bug)
+   - Polymorphism with Account[] array and for-each loop correct
+
+6. JayaganeshV
+   Q1 Comments:
+   - Excellent multi-class design (Student, StudentTest, StudentUtil, Main)
+   - All fields, constructors, methods correct with private access modifiers
+   - Creates 2 students via parameterized constructor and displays results
+   Q2 Comments:
+   - Properly separated into Account, SavingsAccount, CurrentAccount, Main files
+   - Both subclasses override correctly with @Override
+   - Full polymorphism with Account[] array and for-each loop
+
+7. Kushal Vijaypawar
+   Q1 Comments:
+   - All fields, constructors, methods correct
+   - displayResult() + main() with 2 students correct
+   Q2 Comments:
+   - Base Account with deposit() validation (rejects negatives) - good practice
+   - Both subclasses override with @Override; interest rate stored as class field
+   - Full polymorphism with Account[] array and loop
+
+8. MKeerthana Maiya
+   Q1 Comments:
+   - All fields, constructors, methods correct
+   - displayResult() + main() with 2 students correct
+   Q2 Comments:
+   - Base Account class complete; both subclasses override with @Override
+   - Polymorphism with Account[] array and for-each loop correct
+   - NOTE: Code nearly identical to Amrutha Amrutha (possible plagiarism)
+
+9. MonikaH R
+   Q1 Comments:
+   - All fields, constructors, methods correct
+   - displayResult() + main() with 2 students correct
+   Q2 Comments:
+   - Base class (named Inheritence) with all required methods
+   - Both subclasses override with @Override at correct rates
+   - Polymorphism with array and for-each loop correct
+   - NOTE: Q2 identical to JayashreeK's Q2 (possible plagiarism)
+
+10. PUTTUSIVA
+    Q1 Comments:
+    - All fields, constructors, methods correct
+    - displayResult() + main() with 2 students correct
+    Q2 Comments:
+    - Base Account class complete with all required methods
+    - Both subclasses override with @Override at correct rates
+    - Full polymorphism with Account[] array and for-each loop
+
+11. SwathiB
+    Q1 Comments:
+    - All fields, constructors, methods correct; uses 3.0 for proper float division
+    - displayResult() + main() with 2 students correct; output screenshot included
+    Q2 Comments:
+    - Uses private static final INTEREST_RATE constants - excellent design
+    - Both subclasses override with @Override; deposit/withdraw validate input
+    - Full polymorphism with array and loop; output screenshot included
+
+12. NandarapuAyeesha Parveen
+    Q1 Comments:
+    - All fields, constructors, methods correct
+    - displayResult() + main() with 2 students correct
+    Q2 Comments:
+    - Base Account class with all required methods correct
+    - SavingsAccount(4%) and CurrentAccount(2%) override correctly
+    - Missing @Override annotation on both subclass methods
+    - Polymorphism with Account[] array and for-each loop correct
+
+13. PavanGodi
+    Q1 Comments:
+    - All fields with private access modifiers; both constructors correct
+    - All methods correct; uses String.format("%.2f") for formatted output
+    - main() creates 2 students and calls displayResult()
+    Q2 Comments:
+    - Abstract Account class with all methods; abstract calculateInterest()
+    - SavingsAccount(0.04) and CurrentAccount(0.02) override with @Override
+    - Uses private static final INTEREST_RATE constants - excellent design
+    - displayDetails() prints account number, balance, and interest
+    - Runtime polymorphism shown (Account ref = new Subclass) but no Account[] array and no loop
+    - NOTE: Q2 screenshots from VarshiniAyyandurai's machine (plagiarism concern)
+
+14. KandhikantiRohith Goud
+    Q1 Comments:
+    - All fields, constructors, methods correct with good comments throughout
+    - displayResult() + main() with 2 students correct
+    Q2 Comments:
+    - Base Account class with protected fields, constructor, deposit(), withdraw() correct
+    - calculateInterest() defined in base with default message
+    - SavingsAccount(4%) and CurrentAccount(2%) override correctly
+    - Missing @Override annotation on BOTH subclasses (used "// override" comments instead)
+    - Polymorphism with Account[3] array and for-each loop correct
+
+15. HariniFMRI
+    Q1 Comments:
+    - All fields correct; parameterized constructor correct
+    - Default constructor hardcodes name="Jaya" and marks=67,80,55 instead of true defaults
+    - calculateTotal(), calculateAverage(), calculateGrade() all correct
+    - displayResult() + main() with 2 students correct
+    Q2 Comments:
+    - Base Account class with all required methods correct
+    - Both subclasses override with @Override at correct rates
+    - Account[] array contains only SavingsAccount objects; CurrentAccount never in array
+    - Loop calls methods but does not demonstrate polymorphism across both subtypes
+
+16. MoghalAiman Fathima
+    Q1 Comments:
+    - Fields correct (named m1/m2/m3 instead of marks1/marks2/marks3 - acceptable)
+    - Both constructors correct; calculateTotal() and calculateAvg() correct
+    - calculateGrade() returns char instead of String; 'c' lowercase and 'F' instead of "Fail"
+    - displayResult() + main() with 2 students correct
+    Q2 Comments:
+    - Base Account class with all methods correct
+    - Both subclasses override with @Override at correct rates
+    - displayDetails() works correctly
+    - Method name typo "calcuateInterest" throughout (consistent but wrong spelling)
+    - Polymorphism with Account[] array and loop correct; output verified
+
+17. RahulHanchate
+    Q1 Comments:
+    - All fields, constructors, methods correct
+    - main() has compilation error: declares s1 twice instead of s2, then references undeclared s2
+    - Intent is clear (2 students) but code would not compile
+    Q2 Comments:
+    - Clean 4-file separation (Account, SavingsAccount, CurrentAccount, Main)
+    - Both subclasses override with @Override at correct rates
+    - Full polymorphism with Account[] array and for-each loop
+
+18. BalbeerSingh
+    Q1 Comments:
+    - All fields, constructors, methods correct
+    - displayResult() + main() with 2 students correct
+    Q2 Comments:
+    - Base Account has fields and constructor but missing deposit() and withdraw()
+    - calculateInterest() in base returning 0 correct
+    - Both subclasses override with @Override at correct rates
+    - No displayDetails() method anywhere in the code
+    - Polymorphism with Account[] array and for-each loop correct
+
+19. KeerthanaB J
+    Q1 Comments:
+    - Code split across Q1.doc + method.doc + main.doc; all elements present
+    - All fields, constructors, methods correct
+    - main() creates 2 students (Alice, Bob) with parameterized constructor
+    Q2 Comments:
+    - Base Account class with fields, constructor, deposit(), withdraw() correct
+    - calculateInterest() defined in base as empty method
+    - Both subclasses override with @Override at correct rates
+    - displayDetails() works correctly
+    - Class name mismatch: defined as "SavingAccount" but main uses "SavingsAccount" - would not compile
+    - Polymorphism structure (Account[] array, loop) is correct but compile error affects it
+
+20. Smit Tandel
+    Q1 Comments:
+    - All fields, constructors, methods correct
+    - main() creates 3 students covering A, C, and Fail grade ranges - good testing
+    Q2 Comments:
+    - Base class uses accountHolder (String) + accountNumber (int) instead of accountNumber (String)
+    - calculateInterest() in base defined with time parameter; present for overriding
+    - Interest rates use integer 4 and 2 instead of 0.04 and 0.02 giving 400%/200%
+    - displayDetails() works correctly
+    - Polymorphism with Account[] array and for-each loop correct
+
+21. VISHNUDEVFMRI
+    Q1 Comments:
+    - All fields, constructors, methods correct
+    - displayResult() + main() with 2 students correct
+    Q2 Comments:
+    - Base Account class with all fields and methods correct
+    - calculateInterest() in base returning 0 correct
+    - SavingsAccount(4%) and CurrentAccount(2%) override correctly but missing @Override annotation
+    - displayDetails() works correctly
+    - Account[] array contains only SavingsAccount objects; CurrentAccount defined but never instantiated
+
+22. BRamyasree
+    Q1 Comments:
+    - All fields, constructors, methods correct
+    - displayResult() + main() with 2 students correct
+    Q2 Comments:
+    - Base Account class with fields, constructor, deposit(), withdraw() correct
+    - Method named "calculateDInterest" (typo with extra "D") instead of calculateInterest
+    - SavingsAccount is structurally broken (missing closing brace); neither subclass overrides the interest method
+    - displayDetails() correctly defined in base class
+    - main() creates base Account objects only, no subclass instances, no array, no loop
+
+23. VarshiniAyyandurai
+    Q1 Comments:
+    - All fields, constructors, methods correct
+    - displayResult() + main() with 2 students correct; includes separator lines
+    Q2 Comments:
+    - Account class missing accountNumber field (only has balance); no deposit() or withdraw()
+    - calculateInterest() in base returning 0 correct
+    - SavingsAccount(4%) and CurrentAccount(2%) correct rates but missing @Override
+    - No displayDetails() method anywhere
+    - Polymorphism shown via Account ref = new Subclass but no Account[] array and no loop
+
+24. NISHAANTHS
+    Q1 Comments:
+    - Fields and class structure correct
+    - Default and parameterized constructors present
+    - calculateAverage() missing /3 division; just returns total
+    - calculateGrade() uses "returns" instead of "return" and references undeclared variable
+    - main() structure present but constructor arguments have syntax errors (90.20.78.40)
+    Q2 Comments:
+    - Abstract Account class with fields, constructor, deposit(), withdraw() correct
+    - calculateInterest() properly declared as abstract
+    - Subclasses override at correct rates but use @override (lowercase o) and Public (capital P)
+    - displayDetails() present and correct
+    - Array uses wrong variable name (Account[0] instead of accounts[0]); no CurrentAccount in array
+
+25. JayashreeK
+    Q1 Comments:
+    - marks stored as int[] array instead of three separate double fields
+    - No default constructor at all; parameterized constructor takes wrong types
+    - Methods take parameters instead of using instance fields; integer division bug
+    - calculateGrade() takes parameter; thresholds correct but wrong method signature
+    - No displayResult() method; only 1 student created via Scanner; not 2+ with parameterized constructor
+    Q2 Comments:
+    - Base Account class with protected fields, constructor, deposit(), withdraw() correct
+    - calculateInterest() in base returning 0 correct
+    - Both subclasses override with @Override at correct rates
+    - displayDetails() works correctly
+    - Full polymorphism with Account[] array and for-each loop
+
+
+PLAGIARISM FLAGS
+
+  1. MKeerthana Maiya & Amrutha Amrutha
+     - Nearly identical code for both Q1 and Q2 (same variable names, examples, structure)
+
+  2. MonikaH R & JayashreeK
+     - Identical Q2 submissions (same code, same screenshots, same environment)
+
+  3. PavanGodi
+     - Q2 screenshots taken from VarshiniAyyandurai's desktop/machine

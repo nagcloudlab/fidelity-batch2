@@ -1,0 +1,445 @@
+
+1. BalajiN M
+   Q1 Comments:
+   - Task class: correct fields (taskId, taskName, priority). @Override on both toString() and equals()
+   - equals() checks instanceof, casts properly, compares taskId only. Excellent
+   - TaskManager uses LinkedList<Task>. addTask iterates to check uniqueness
+   - removeTask uses Iterator with iterator.remove() (safe removal during iteration)
+   - searchTask uses for-each linear search. displayTasks uses for-each with isEmpty() check
+   - Process Task: uses both peek() and poll() as required -- first displays next task with peek(), then removes with poll(). Perfect FIFO
+   - Menu-driven: complete do-while loop with switch-case, 6 options, proper Scanner handling
+   Q2 Comments:
+   - Account class: correct fields (accountNumber, accountHolderName, balance) with private access
+   - Constructor validates null/empty accountNumber with IllegalArgumentException
+   - Custom exceptions: both InvalidAmountException and InsufficientFundsException extend Exception with super(message)
+   - Business rules: deposit <= 0, withdraw <= 0, withdraw > balance all correct
+   - Menu: complete with switch-case (1-4), do-while loop. Scanner input
+   - Exception handling: multiple catch blocks, generic Exception, finally block with "Transaction processed." Excellent
+
+2. MonikaH R
+   Q1 Comments:
+   - Task class (named Task1) with correct fields. @Override on toString(), equals(), hashCode()
+   - equals() based on taskId only. hashCode() uses Objects.hash(taskid). Good practice
+   - TaskManager with LinkedList<Task1>. addTask validates uniqueness. removeTask with not-found message
+   - searchTask linear search correct. displayTasks using for-each
+   - peekNext() using peek() and processNext() using poll() for FIFO. Correct
+   - Menu-driven with 7 options and input validation (hasNextInt checks). Excellent
+   Q2 Comments:
+   - Account class with private fields and parameterized constructor. Correct
+   - Constructor validates empty accountNumber with IllegalArgumentException
+   - deposit/withdraw throw correct exceptions for all business rules
+   - Custom exceptions extend Exception with super(message). Correct
+   - Multiple catch blocks, generic Exception, finally block with "Transaction processed." All correct
+   - NOTE: Code nearly identical to SwathiB (possible plagiarism -- see flag below)
+
+3. SwathiB
+   Q1 Comments:
+   - Task class with correct fields. @Override on toString(), equals(), hashCode()
+   - equals() based on taskId only. hashCode() using Objects.hash(taskId)
+   - TaskManager with LinkedList<Task>. addTask validates uniqueness. removeTask correct
+   - searchTask linear search. displayTasks using for-each loop
+   - peekNext() using peek() and processNext() using poll(). Correct FIFO
+   - Menu-driven with 7 options and input validation (hasNextInt checks). Excellent
+   Q2 Comments:
+   - Account class with private fields. Constructor validates with trim().isEmpty()
+   - deposit/withdraw throw correct exceptions for all business rules
+   - Custom exceptions extend Exception with super(message). Correct
+   - Multiple catch blocks, generic Exception, finally block with "Transaction processed." All correct
+   - NOTE: Code nearly identical to MonikaH R (possible plagiarism -- see flag below)
+
+4. JayaganeshV
+   Q1 Comments:
+   - Task class: correct fields. toString() and equals() with @Override, equals based on taskId only
+   - hashCode() NOT overridden when equals() is -- minor omission
+   - TaskManagement class with static LinkedList<Task>. addTask checks uniqueness. removeTask correct
+   - searchTask linear search. displayTasks for-each with isEmpty() check
+   - Process Task: uses peek() then poll(). Correct FIFO
+   - Menu-driven with do-while, 6 options
+   Q2 Comments:
+   - Account class: correct fields with private access. Constructor validates null/empty accountNumber
+   - deposit/withdraw correctly throw all required exceptions
+   - Custom exceptions in separate file, both extend Exception with super(message)
+   - Multiple catch blocks, generic Exception, finally block with "Transaction processed." All correct
+   - Outer try-catch for IllegalArgumentException. Clean, well-organized code
+
+5. KandhikantiRohith Goud
+   Q1 Comments:
+   - Task class: private fields with getters -- good encapsulation. @Override on toString(), equals(), hashCode()
+   - equals() based on taskId only. hashCode() using Objects.hash(). Good
+   - TaskManager uses private LinkedList<Task>. addTask checks uniqueness. removeTask uses Iterator
+   - searchTask for-each. displayTasks for-each with isEmpty() check
+   - Process Task: uses peek() then poll(). Correct FIFO
+   - Minor: "Public class TaskManager" has capital 'P' -- compilation error
+   Q2 Comments:
+   - Account class: correct fields with private access. Constructor validates null/empty with IllegalArgumentException
+   - deposit/withdraw throw correct exceptions for all business rules
+   - Custom exceptions extend Exception with super(message). Correct
+   - Multiple catch blocks, generic Exception, finally block with "Transaction processed." All correct
+   - Outer try-catch for account creation. Excellent structure
+
+6. DileepChepuri
+   Q1 Comments:
+   - Task class: correct fields. toString() and equals() present with instanceof check
+   - Missing @Override annotations on both methods
+   - TaskManager uses LinkedList<Task>. addTask checks uniqueness. removeTask uses Iterator
+   - searchTask uses index-based loop (still linear search, acceptable). displayTasks for-each
+   - Process Task: uses poll() but does NOT use peek()
+   - Menu-driven with while(true) and switch-case, 6 options
+   Q2 Comments:
+   - Account class: correct fields with private access. Constructor validates null/empty
+   - deposit/withdraw throw correct exceptions for all business rules
+   - Custom exceptions extend Exception with super(message). Correct
+   - Menu: do-while with switch-case (1-4). Scanner input
+   - Exception handling: multiple catch blocks, generic Exception, finally with "Transaction processed."
+   - Clean, well-organized, complete code. No compilation errors
+
+7. HariniFMRI
+   Q1 Comments:
+   - Task class: correct fields. @Override on toString(), equals(). Also hashCode() -- good practice
+   - TaskManager uses LinkedList<Task>. addTask uses contains() (works because equals() is overridden)
+   - removeTask uses Iterator for safe removal. searchTask for-each. displayTasks for-each with isEmpty()
+   - Process Task: uses peek() then poll(). Correct FIFO
+   - Menu-driven with do-while, 6 options. Complete implementation, all requirements met
+   Q2 Comments:
+   - Account class: correct fields. deposit/withdraw/getBalance all present
+   - Custom exceptions extend Exception with super(message). Correct
+   - All business rules enforced correctly including empty account number check
+   - Multiple catch blocks and generic catch(Exception e) present
+   - finally block only closes scanner, does NOT print "Transaction processed." after each transaction
+   - Account creation hardcoded instead of full Scanner input
+
+8. BodduAshok Reddy
+   Q1 Comments:
+   - Task class: correct fields with private access and getters. @Override on toString(), equals(), hashCode()
+   - equals() uses instanceof check. Excellent encapsulation
+   - TaskManager uses private LinkedList<Task>. All operations correct
+   - Process Task: uses both peek() and poll(). Correct FIFO
+   - Minor: "Public class TaskManager" has capital 'P' -- compilation error
+   Q2 Comments:
+   - Account class: correct fields with private access. Constructor validates null/empty
+   - Custom exceptions both extend Exception with super(message)
+   - All business rules correctly enforced
+   - Multiple catch blocks, generic Exception, finally with "Transaction processed." Correct
+   - Classes structured as separate classes in single file (non-public) -- acceptable for submission
+   - Complete and correct implementation of all Q2 requirements
+
+9. Kushal Vijaypawar
+   Q1 Comments:
+   - Task class: correct fields (private with getters). @Override on toString(), equals(), hashCode()
+   - equals() based on taskId only. Good encapsulation
+   - TaskManager uses private LinkedList<Task>. addTask checks uniqueness. removeTask correct
+   - searchTask for-each. displayTasks for-each with isEmpty() check
+   - Process Task: uses poll() only, does NOT use peek()
+   - Menu-driven with do-while, 6 options. Correct
+   - Minor field typo "priortiy" (internally consistent)
+   Q2 Comments:
+   - Account class: correct fields with private access. Constructor validates null/empty
+   - Custom exceptions extend Exception with super(message). Correct
+   - All business rules correctly enforced
+   - Menu: do-while with switch-case. Correct
+   - Syntax error: System.out.println((\"4.Exit\") -- extra parenthesis, compilation error
+   - Account creation not wrapped in try-catch for IllegalArgumentException
+
+10. PUTTUSIVA
+    Q1 Comments:
+    - Task class: correct fields. toString() and equals() present but missing @Override
+    - equals() does direct cast without instanceof check -- could throw ClassCastException
+    - TaskManager uses LinkedList<Task>. add/remove/search/display all functional
+    - Process Task: uses peek() and poll(). Correct FIFO
+    - Menu uses do-while with if-else chain instead of switch -- functional, acceptable
+    Q2 Comments:
+    - Account class with private fields. Constructor validates empty accountNumber. Correct
+    - deposit/withdraw throw correct exceptions. Custom exceptions with super(message). Correct
+    - Multiple catch blocks, generic Exception, finally with "Transaction processed." Correct
+    - Minor: class name "main" should be "Main" (lowercase class name)
+    - Code is well-structured and would compile and run correctly
+
+11. BalbeerSingh
+    Q1 Comments:
+    - Task class: correct fields. @Override on toString() and equals(). equals() has instanceof check
+    - TaskManager uses LinkedList<Task>. addTask uses contains() correctly. removeTask uses removeIf()
+    - searchTask for-each. displayTasks for-each with isEmpty() check
+    - Process Task: uses poll() but does NOT use peek()
+    - Menu: while(true) with switch-case. Complete implementation
+    Q2 Comments:
+    - Account fields NOT private (no access modifiers)
+    - Constructor validates null but NOT isEmpty() -- empty string would pass through
+    - CRITICAL BUG: case 2 reads withdrawal amount but NEVER calls acc.withdraw(w)
+    - Missing semicolons on println statements -- compilation errors
+    - Exception handling structure correct (multiple catch, generic, finally)
+    - NOTE: Q2 nearly identical to CalvinAbel Mathews (plagiarism concern -- see flag below)
+
+12. MKeerthana Maiya
+    Q1 Comments:
+    - Task class: correct fields. toString() present but minimal format, no @Override
+    - equals() present but no null/instanceof check -- unsafe
+    - TaskManager uses LinkedList<Task>. addTask checks uniqueness
+    - removeTask uses for-each with tasks.remove(t) inside iteration -- ConcurrentModificationException risk
+    - Process Task: uses poll() but no peek()
+    - Menu: while(true) with if-else. Functional but minimal
+    Q2 Comments:
+    - Account class: correct fields but no private access modifiers
+    - Custom exceptions extend Exception with super(msg). Correct
+    - All business rules correctly enforced
+    - Account hardcoded ("101", "User", 1000) instead of Scanner input
+    - Multiple catch blocks, generic Exception, finally with "Transaction processed." Correct
+    - Uses if-else chain instead of switch. No outer try-catch for IllegalArgumentException
+
+13. CalvinAbel Mathews
+    Q1 Comments:
+    - Task class: correct fields. toString() and equals() present but missing @Override
+    - equals() uses instanceof properly. Compares taskId only
+    - TaskManager uses LinkedList<Task>. addTask checks uniqueness. removeTask correct
+    - displayAll (named differently) uses for-each. searchTask uses linear search
+    - Process Task: uses poll() but no peek()
+    - Menu: do-while with switch-case, 6 options. Proper Scanner handling
+    Q2 Comments:
+    - Account fields NOT private. Constructor checks null but NOT isEmpty()
+    - CRITICAL BUG: case 2 reads withdrawal amount but NEVER calls acc.withdraw(w)
+    - Missing semicolons on println statements -- compilation errors
+    - Account hardcoded as ("123", "Calvin Mathews", 10000) instead of Scanner input
+    - Exception handling structure correct
+    - NOTE: Q2 nearly identical to BalbeerSingh (plagiarism concern -- see flag below)
+
+14. VISHNUDEVFMRI
+    Q1 Comments:
+    - Task class: correct fields. toString(), equals(), hashCode() present but missing @Override
+    - TaskManager uses LinkedList<Task>. addTask validates uniqueness using addLast()
+    - removeTask by taskId for-each correct. searchTask linear search correct
+    - displayTasks for-each. processTask uses poll() for FIFO. Functional
+    - Menu-driven with 6 options. Uses System.exit(0). Complete implementation
+    Q2 Comments:
+    - Account class with private fields but MISSING constructor entirely
+    - No accountNumber/accountHolderName initialization, no IllegalArgumentException validation
+    - deposit/withdraw throw correct custom exceptions. Correct logic
+    - "IllegatArgumentException" misspelled -- compilation error
+    - Multiple "System.out.prinln" typos throughout -- compilation errors
+    - try-catch structure correct (multiple catch, generic, finally) but code would not compile
+
+15. Amrutha Amrutha
+    Q1 Comments:
+    - Task class: correct fields. toString() and equals() present but missing @Override
+    - equals() lacks instanceof check (direct cast without safety)
+    - TaskManager uses LinkedList<Task>. addTask validates uniqueness. removeTask, searchTask correct
+    - displayTasks uses for-each. Process Task uses poll() but no peek()
+    - Menu: functional with switch-case structure
+    Q2 Comments:
+    - Account fields named "no" and "bal" -- poor naming, missing accountHolderName field entirely
+    - deposit checks "a < 50" instead of "a <= 0" -- WRONG threshold
+    - Custom exceptions extend Exception with super(message). Correct
+    - Missing finally block -- "Transaction processed." printed inside methods instead
+    - No multiple specific catch blocks (single generic catch used)
+    - Missing getBalance() method
+
+16. BRamyasree
+    Q1 Comments:
+    - Task class: field typo "tastId" while constructor uses "taskId" -- compilation error
+    - Missing equals() method entirely -- contains() would not work based on taskId
+    - removeTask body references undeclared variable "removed" -- compilation error
+    - searchTask and displayTasks reference "t" without a loop -- compilation errors
+    - processNextTask has no poll()/peek() call visible -- compilation error
+    - Menu present but "new Taskmanager()" wrong capitalization
+    - Multiple severe compilation errors; code shows understanding of structure but incomplete
+    Q2 Comments:
+    - Account class: correct fields with private access. Constructor with 3 parameters
+    - Custom exceptions extend Exception with super(message). Correct
+    - deposit checks <= 0 correctly. withdraw checks <= 50 instead of <= 0 -- WRONG
+    - Copy-paste error in withdraw message says "Deposit amount"
+    - Menu with switch-case (1-4). Scanner input. Well structured
+    - Multiple catch blocks, generic Exception, finally block with "Transaction processed." Correct
+
+17. NandarapuAyeesha Parveen
+    Q1 Comments:
+    - Task class: correct fields. toString() and equals() present but missing @Override
+    - TaskManager uses LinkedList<Task>. addTask validates uniqueness
+    - BUT after successful add prints "task ID must be Unique!" -- copy-paste bug
+    - removeTask uses Iterator correctly. searchTask linear search correct
+    - displayTasks for-each. processTask uses poll() for FIFO. Functional
+    - Menu-driven with 6 options. Complete implementation
+    Q2 Comments:
+    - Account class with private fields. Correct
+    - Constructor missing "throw new" before IllegalArgumentException -- compilation error
+    - deposit/withdraw throw correct exceptions. Custom exceptions correct
+    - "Transaction processed." printed inside methods, NOT in finally block
+    - Variable naming: "Account Account = new Account(...)" -- class name as variable
+    - No generic catch(Exception e) inside transaction loop. No finally block in loop
+    - InsufficientFundsException catch prints "error" instead of actual message
+
+18. RahulHanchate
+    Q1 Comments:
+    - Task class MISSING -- Task.java.docx contains duplicate of Main.java
+    - TaskManager references Task class fields but without Task class, won't compile
+    - TaskManager uses LinkedList<Task>. addTask logic correct
+    - removeTask CRITICAL BUG: returns before removing task (tasks.remove never reached)
+    - searchTask linear search correct. displayTasks for-each correct
+    - processTask uses poll() but no peek()
+    - Main has syntax error: missing closing parenthesis in addTask call
+    - equals() not overridden -- contains() won't work correctly
+    Q2 Comments:
+    - Account class with private fields. Constructor validates empty accountNumber. Correct
+    - deposit/withdraw throw correct custom exceptions. Correct
+    - Custom exceptions extend Exception with super(message). Correct
+    - Menu labels DO NOT match case logic -- menu shows different options than what code does
+    - Uses multi-catch instead of separate catch blocks
+    - No generic catch(Exception e). No finally block with "Transaction processed."
+
+19. PavanGodi
+    Q1 Comments:
+    - Q1 NOT SUBMITTED. BankApplication.docx contains screenshots of a different program
+      (abstract Account with SavingsAccount/CurrentAccount -- from a different exercise)
+    Q2 Comments:
+    - BANK_APPLICATION.docx contains Q2 code
+    - Account class with private final fields. Constructor validates empty accountNumber. Good practice
+    - Custom exceptions as static inner classes extending Exception with super(message). Correct
+    - deposit/withdraw correctly throw all required exceptions
+    - Multiple catch blocks per case including NumberFormatException. Thorough
+    - finally block with "Transaction processed." Correct
+    - Includes helper methods readInt()/readDouble() -- excellent defensive programming
+    - Minor: Account starts at 0.0 hardcoded instead of Scanner-based initial balance
+
+20. KeerthanaB J
+    Q1 Comments:
+    - Task class: has taskId and taskName only -- MISSING priority field
+    - Constructor uses semicolon instead of comma in params -- compilation error
+    - toString() has lowercase "@override" and "string" return type -- compilation errors
+    - equals() NOT overridden -- missing required method
+    - addTask does NOT validate uniqueness of taskId
+    - searchTask has "task.taskId--id" typo (decrement instead of ==) -- logic error
+    - Process Task: uses poll() but no peek()
+    Q2 Comments:
+    - Uses "Class", "Public", "Super" capitalization -- multiple compilation errors
+    - Missing accountHolderName field. "private diuble balance" typo
+    - deposit() written as "deposite()" -- method name mismatch
+    - No getBalance() method -- uses checkBalance() instead
+    - Multi-catch used instead of multiple catch blocks. No generic catch(Exception e)
+    - No finally block with "Transaction processed."
+    - Code appears manually typed with numerous capitalization errors throughout
+
+21. MoghalAiman Fathima
+    Q1 Comments:
+    - Q1 NOT SUBMITTED. Both files (program_code.docx, program_output.docx)
+      contain only Q2 Banking System code and output screenshots
+    Q2 Comments:
+    - Account class with correct fields. Constructor validates empty accountNumber. Correct
+    - deposit/withdraw throw correct exceptions for all business rules
+    - Custom exceptions extend Exception with super(message). Correct
+    - getBalance() method present. Correct
+    - Account hardcoded ("987654321","Aiman fathima", 1000.0) instead of Scanner input
+    - Uses multi-catch instead of separate multiple catch blocks as required
+    - Generic catch(Exception e) present. finally block with "Transaction processed." Correct
+    - Output screenshots confirm program compiles and runs correctly
+
+22. JayashreeK
+    Q1 Comments:
+    - Q1 NOT SUBMITTED. Only one file (BankingApp1.pdf) which contains only Q2 code
+    Q2 Comments:
+    - Custom exceptions extend Exception with super(errMsg). Constructors lack "public" modifier
+    - Account class: correct fields. Constructor takes only 2 params (no initial balance) -- acceptable
+    - setAccountNumber checks null but NOT isEmpty() -- incomplete validation
+    - deposit() checks <= 0 correctly BUT method does NOT declare "throws" -- compilation error for checked exception
+    - withdraw() checks > balance but does NOT check <= 0 (missing InvalidAmountException for negative)
+    - Menu NOT in a loop -- only runs once, no do-while/while
+    - Duplicate catch for InvalidAmountException -- compilation error. No generic catch. No finally block
+
+23. NISHAANTHS
+    Q1 Comments:
+    - Only Q1 file submitted. Q2 is missing entirely
+    - Task class has correct fields and constructor
+    - equals() returns Boolean (wrapper) instead of boolean. "return t rue" / "return fals e"
+      with spaces -- compilation errors. "Return" capitalized. Mismatched parentheses
+    - toString() missing comma in String.format params -- compilation error
+    - TaskManager: removeTask uses "task.removeIf" instead of "tasks.removeIf"
+    - searchTask has unclosed braces, misplaced logic. displayTasks has "isempty()" wrong case
+    - processTask uses peek() and poll() concept but "Tasks.poll()" has capital T, missing semicolon
+    - Menu: "Switch" (capital S), break() instead of break;, case 3 calls removeTask instead of searchTask
+    - Numerous compilation errors throughout -- code would not compile
+    Q2 Comments:
+    - Q2 NOT SUBMITTED.
+
+24. Smit Tandel
+    Q1 Comments:
+    - Task class: Missing "taskName" field entirely. "priority" declared as String instead of int
+    - toString() present with @Override but only prints taskId, not all fields
+    - equals() present with @Override, correctly based on taskId only
+    - Uses PriorityQueue<Object> instead of LinkedList<Task> as required -- fundamental deviation
+    - Add Task: hardcodes Task(1,"ABC") instead of reading input. No uniqueness validation
+    - Remove Task: uses pq.remove() (removes head), does not remove by taskId. No not-found message
+    - Search Task: uses pq.peek() (head only), no linear search by taskId
+    - Display All Tasks: uses for-each loop -- this part works correctly
+    - Process Task: poll() never used. Option 5 hardcodes adding a new task instead of FIFO
+    - Menu: present but infinite loop bug -- never re-reads choice inside loop
+    - No search functionality, no proper remove by ID
+    Q2 Comments:
+    - Account class: has accountNumber and balance but "acoountName" misspelled, missing constructor
+    - InvalidAmountException extends RuntimeException instead of Exception. No-arg constructor
+      with hardcoded message instead of parameterized constructor with super(message)
+    - InsufficientFundsException COMPLETELY MISSING -- core requirement
+    - deposit() misspelled as "depoist". Checks < 0 instead of <= 0. Does NOT update balance
+    - withdraw() checks < 0 instead of <= 0. No check for amount > balance. Does NOT deduct balance
+    - Empty account number check uses == "" (reference comparison) -- won't work in Java
+    - Main method is COMPLETELY EMPTY -- no Scanner, no menu, no try-catch, no finally block
+    - Overall: severely incomplete submission. Most method bodies lack actual logic
+
+25. VarshiniAyyandurai
+    Q1 Comments:
+    - Task class: has id (int), name (String), priority (int) -- all three fields present
+    - Field names "id"/"name" instead of "taskId"/"taskName" -- minor naming difference
+    - toString() implemented with all fields but missing @Override annotation
+    - equals() implemented based on id only but missing @Override and no instanceof check
+    - Uses LinkedList<Task> correctly as required
+    - Add Task: adds to end but does NOT validate taskId uniqueness
+    - Remove Task: uses list.remove(new Task(id,"",0)) leveraging equals() -- functional
+      but does not display "not found" message
+    - Search Task: no dedicated search option in menu -- search functionality missing entirely
+    - Display All Tasks: uses for-each loop correctly
+    - Process Task: uses list.poll() correctly for FIFO. peek() not used
+    - No TaskManager class -- all logic directly in Main method
+    - Menu-driven with do-while loop, 5 options. Functional
+    Q2 Comments:
+    - Account class: has accNo (String) and balance (double). Missing accountHolderName
+    - Custom exceptions: InvalidAmt and NoFunds both extend Exception with parameterized
+      constructor using super(msg) -- correct structure. Names differ from spec but acceptable
+    - deposit() correctly throws InvalidAmt when amt <= 0. Updates balance correctly
+    - withdraw() correctly throws InvalidAmt when amt <= 0 and NoFunds when amt > balance. Correct
+    - getBalance() not a separate method -- balance accessed directly as acc.balance
+    - Constructor validates empty accNo with IllegalArgumentException using isEmpty(). Correct
+    - Main with Scanner present. Has catch(Exception e) and finally with "Transaction processed."
+    - Menu runs only once (no loop) instead of looping with Exit option
+    - Only single generic catch instead of multiple specific catch blocks
+
+
+PLAGIARISM FLAGS
+
+  1. MonikaH R & SwathiB
+     - Both Q1 and Q2 submissions are nearly identical
+     - Q1: Same TaskManager structure, identical method names, identical messages
+       ("Task ID already exists. Cannot add.", "Task removed successfully.", etc.),
+       identical input validation pattern (hasNextInt), identical hashCode() implementation.
+       Only difference: class name Task1 vs Task and package declaration
+     - Q2: Identical variable names (accNo, dep, wd), identical menu text
+       ("---------- BANK MENU ------------"), identical exception messages,
+       identical println formatting. Only difference: package declaration and class casing
+
+  2. BalbeerSingh & CalvinAbel Mathews
+     - Q2 submissions are nearly identical
+     - Same hardcoded account values ("123", "Calvin Mathews", 10000)
+     - Identical variable names (d, w), identical missing withdraw call bug (case 2
+       reads amount but never calls acc.withdraw()), identical missing semicolons,
+       identical structure. Almost certainly from the same source
+
+  3. JayaganeshV & HariniFMRI (Q2 concern)
+     - Very high similarity in Account.java structure, exception classes, and Main.java flow
+     - Identical variable names (accNo, name), identical error messages
+       ("Deposit amount must be greater than 0", "Insufficient balance"),
+       identical Account constructor validation logic
+     - Code is nearly identical with only minor formatting differences
+
+  4. Kushal Vijaypawar & KandhikantiRohith Goud (Q1 concern)
+     - Structurally very similar Q1 code -- same method signatures, same message patterns,
+       nearly identical TaskManager logic, same Task class with private fields/getters/hashCode
+
+  5. PavanGodi, MoghalAiman Fathima, JayashreeK
+     - Q1 not submitted by any of these three participants
+
+  6. Smit Tandel
+     - Severely incomplete submission -- empty main method in Q2, PriorityQueue instead of LinkedList in Q1

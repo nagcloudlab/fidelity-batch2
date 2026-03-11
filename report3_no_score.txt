@@ -1,0 +1,429 @@
+
+1. BalajiN M
+   Q1 Comments:
+   - Complete HTML structure (DOCTYPE, html, head, body)
+   - form action="/register" method="POST" correct
+   - All 10 fields present with correct types (text, email, password x2, number, date, radio, select, checkbox, textarea)
+   - 3 hobbies (Reading, Sports, Music) meets minimum requirement
+   - Submit button present
+   Q2 Comments:
+   - Complete HTML structure with heading "Employee Registration Form"
+   - All 8 form fields present with correct types and proper name/value attributes
+   - Employee ID, Name, Email, Department all have required attribute -- correct validation
+   - Department select with all 4 options (HR, IT, Finance, Sales)
+   - Gender radio with proper values; Skills checkboxes with name and values
+   - Submit "Register" and Reset "Clear" buttons correct
+   - Sample table with 4 correct columns and 2 data rows
+
+2. BodduAshok Reddy
+   Q1 Comments:
+   - Excellent structure with lang="en", meta charset, proper title
+   - form action="/register" method="POST" correct
+   - All 10 fields present with required attribute on all -- good practice
+   - 4 hobbies (Reading, Sports, Music, Travel) -- exceeds minimum
+   - Submit button present; clean, well-organized code
+   Q2 Comments:
+   - All 8 form fields present with proper name attributes
+   - Employee ID, Name, Email have required; Department select with required
+   - Gender radio (Male, Female) with name="gender"
+   - Skills checkboxes (Java, Python, HTML, SQL) with name="skills" and values
+   - Submit "Register" and Reset "Clear" correct
+   - Sample table with 2 data rows (Ashok/IT, sathish/HR)
+   - NOTE: Code nearly identical to KandhikantiRohith Goud (possible plagiarism)
+
+3. JayaganeshV
+   Q1 Comments:
+   - Complete HTML structure with form action="/register" method="POST"
+   - All 10 fields present with required on most fields
+   - 5 hobbies (Reading, Sports, Music, Traveling, Gaming) -- excellent variety
+   - Course select missing default placeholder option (minor)
+   - Well-structured code with proper name attributes throughout
+   Q2 Comments:
+   - Excellent use of id, name, and label for attributes on all fields
+   - All validation requirements met (required on empid, empname, email, department)
+   - Skills checkboxes all correct with name/value attributes
+   - Submit "Register" and Reset "Clear" correct
+   - Sample table with 3 data rows (Arun/IT, Divya/HR, Jayaganesh/Finance) -- exceeds minimum
+   - Has <hr> separator before table -- good design
+
+4. KandhikantiRohith Goud
+   Q1 Comments:
+   - Excellent structure with lang="en", meta charset
+   - form action="/register" method="POST" correct
+   - All 10 fields present with required attributes
+   - 4 hobbies (Reading, Sports, Music, Travel) -- same as BodduAshok Reddy
+   - Submit button present; clean code
+   - NOTE: Code character-for-character identical to BodduAshok Reddy Q1 (plagiarism)
+   Q2 Comments:
+   - All 8 fields with proper name/value attributes
+   - Validation requirements met (required on all mandatory fields)
+   - Submit "Register" and Reset "Clear" correct
+   - Sample table with 2 data rows (Ashwin/IT, Rohit/HR)
+   - NOTE: Code structure identical to BodduAshok Reddy Q2 (only sample data differs)
+
+5. Kushal Vijaypawar
+   Q1 Comments:
+   - HTML structure with lang="en"; form action="/register" method="POST" correct
+   - All 10 fields present with required on most fields
+   - Course options: Web Dev, Data Science, Cloud Computing
+   - 3 hobbies (reading, gaming, sports)
+   - Well-structured with proper name attributes
+   - NOTE: Code identical to RahulHanchate Q1 (plagiarism)
+   Q2 Comments:
+   - All fields present with proper label, name, and value attributes -- excellent
+   - Gender radio with name="gender" and value attributes correct
+   - Skills checkboxes (Java, Python, HTML, SQL) with name/value -- correct
+   - Submit "Register" and Reset "Clear" using <button> tags -- correct
+   - Sample table with 2 data rows and cellpadding="8" -- good design
+   - Has <hr> separator before table
+
+6. CalvinAbel Mathews
+   Q1 Comments:
+   - form action="/register" method="POST" correct
+   - All 10 fields present with correct types
+   - Missing spaces between attributes throughout (type="text"name=) -- cosmetic but sloppy
+   - Checkbox name misspelled as "hoppy" instead of "hobbies"
+   - "Adress" label misspelled (missing 'd')
+   - Textarea missing rows/cols attributes (minor)
+   Q2 Comments:
+   - All 8 fields with proper name/value attributes
+   - Validation requirements met (required on empid, empname, email, department)
+   - Gender radio with values; Skills checkboxes with name/values -- all correct
+   - Submit "Register" and Reset "Clear" correct
+   - Sample table with 3 data rows -- exceeds minimum
+
+7. MKeerthana Maiya
+   Q1 Comments:
+   - Complete HTML structure; form action="/register" method="POST" correct
+   - All 10 fields present with correct types
+   - Course options: Java, Python, Web Development
+   - 3 hobbies: Reading, Sports, Music
+   - Submit button present
+   Q2 Comments:
+   - All fields present with required on empid, empname, email, department
+   - Gender radio with name="gender" and value attributes -- correct
+   - Skills checkboxes (Java, Python, HTML, SQL) with name/value -- correct
+   - Remarks textarea present but missing name attribute -- remarks data won't submit
+   - Submit "Register" and Reset "Clear" correct
+   - Sample table with 2 data rows (John/IT, Sarah/HR)
+
+8. BalbeerSingh
+   Q1 Comments:
+   - HTML structure correct
+   - MISSING form action and method attributes
+   - All 10 fields present with required on most
+   - CRITICAL BUG: Date of Birth has name="Mobile" -- same as Mobile Number field
+     DOB data would overwrite/conflict with mobile data; "dob" is stray invalid attribute
+   - Course options: BCA, B.Tech, MCA, M.Tech (different from typical but acceptable)
+   - Submit "Register" and Reset "Clear" buttons present
+   Q2 Comments:
+   - All 8 fields with proper name/value attributes and <label> tags -- excellent
+   - Gender radio with values; Skills checkboxes with name/value -- all correct
+   - Validation requirements met (required on all mandatory fields)
+   - Submit "Register" and Reset "Clear" correct
+   - Sample table with 2 data rows; minor typo "gamil" in email
+
+9. HariniFMRI
+   Q1 Comments:
+   - form action="/register" method="post" correct (lowercase method acceptable)
+   - All 10 fields present with correct types
+   - Confirm Password has same name="password" as Password field
+     -- confirm password value would overwrite password on submission
+   - Hobbies: Reading Books, Listening Music, Watching Movie, Art and Craft (4 items)
+   - Course select has no default placeholder option (minor)
+   - Uses <label><b>...</b></label> for bold labels
+   Q2 Comments:
+   - All 8 fields present with proper name attributes
+   - Employee ID, Name, Email have required -- correct
+   - Department select MISSING required attribute -- validation requirement not met
+   - Skills checkboxes (Java, Python, HTML, SQL) with name/value -- correct
+   - Submit "Register" and Reset "Clear" correct
+   - Sample table with 2 data rows (Rahul/IT, Anitha/HR)
+   - Uses <b> tags instead of <label> tags for field names
+
+10. MonikaH R
+    Q1 Comments:
+    - Excellent structure with lang="en", meta charset
+    - form action="/register" method="POST" correct
+    - All 10 fields present with required attributes
+    - 5 hobbies (Reading, Music, Sports, Painting, Drawing) -- exceeds minimum
+    - Submit button using <button type="submit"> -- correct
+    Q2 Comments:
+    - Employee ID, Employee Name, and Email inputs all MISSING name attributes
+      -- form data for these 3 critical fields would NOT be submitted
+    - Skills checkboxes: 5 instead of 4; SQL checkbox has value="Kotlin" (wrong)
+      -- extra CSS checkbox with value="HTML" (duplicate of HTML checkbox value)
+    - Department options missing value attributes (minor)
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 2 data rows present
+    - NOTE: Q1 structure very similar to SwathiB (possible plagiarism)
+
+11. DileepChepuri
+    Q1 Comments:
+    - form action="/register" method="POST" correct
+    - All 10 fields present with correct types
+    - "FeMale" inconsistent capitalization in gender radio (minor)
+    - Course select has no default placeholder option (minor)
+    - Submit button present
+    Q2 Comments:
+    - All 8 fields present
+    - Gender radio buttons have typo valeue instead of value -- values won't submit
+    - All 4 skills checkboxes have identical value="Java" -- major bug, all skills submit as Java
+    - Table data rows incorrectly use <th> instead of <td>
+    - Reset button says "clear" (lowercase) instead of "Clear"
+    - Sample table structure present with 2 data rows
+
+12. SwathiB
+    Q1 Comments:
+    - Excellent structure with lang="en", meta charset
+    - form action="/register" method="POST" correct
+    - All 10 fields present with required attributes
+    - Broken HTML comment visible on page: "9. Hobbies -->" missing opening <!--
+    - Duplicate/stray <form> tag at end of form (minor)
+    - Trailing slash after </html>/ (minor)
+    Q2 Comments:
+    - Employee ID, Employee Name, and Email inputs all MISSING name attributes
+      -- form data for these 3 fields would NOT be submitted
+    - Skills checkboxes include "Kotlin" instead of "SQL" as required
+    - Form has empty action attribute (action="")
+    - Department options missing value attributes (minor)
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 2 data rows
+    - NOTE: Q1 structure very similar to MonikaH R (possible plagiarism)
+
+13. VarshiniAyyandurai
+    Q1 Comments:
+    - Complete HTML structure; form action="/register" method="POST" correct
+    - All 10 fields present with required attributes and <label> tags
+    - 3 hobbies (Reading, Sports, Music)
+    - Submit button using <button type="submit">Register</button> -- correct
+    - Clean, well-organized code
+    Q2 Comments:
+    - Employee ID, Name, Email with required; Department select with required -- correct
+    - Gender radio buttons MISSING value attributes -- gender data won't be meaningful
+    - All 4 skills checkboxes MISSING name and value attributes -- skills data won't submit
+    - Remarks textarea MISSING name attribute -- remarks won't submit
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with correct columns and 2 data rows (Vijay/HR, Surya/Finance)
+
+14. Amrutha Amrutha
+    Q1 Comments:
+    - Complete HTML structure; form action="/register" method="POST" correct
+    - All 10 fields present with correct types
+    - Course: Java, Python, Web Development
+    - 3 hobbies: Reading, Sports, Music
+    - Submit button present
+    Q2 Comments:
+    - All 8 field types present
+    - Gender radio buttons MISSING value attributes
+    - Skills checkboxes MISSING name and value attributes
+    - Date of Joining and Remarks MISSING name attributes
+    - Department select MISSING name attribute
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 2 data rows (Alice/Finance, David/Sales)
+
+15. PUTTUSIVA
+    Q1 Comments:
+    - MISSING <!DOCTYPE html> declaration
+    - form action="/register" method="POST" correct
+    - All 10 fields present with correct types
+    - Sports and Dancing checkboxes both incorrectly have value="Music"
+      -- duplicate incorrect values; data would be indistinguishable
+    - Submit button says "register" (lowercase) instead of "Register"
+    - Textarea missing rows/cols attributes (minor)
+    Q2 Comments:
+    - MISSING <!DOCTYPE html> declaration
+    - All fields present with required on empid, empname, email
+    - Skills are WRONG: has C++/AI instead of HTML
+      -- missing required HTML checkbox entirely
+    - "Fianance" misspelled in department; extra "Marketing" option
+    - Department has required; Gender radio present
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 3 data rows -- exceeds minimum
+
+16. RahulHanchate
+    Q1 Comments:
+    - Excellent structure with lang="en"; form action="/register" method="POST" correct
+    - All 10 fields present with required on most fields
+    - Course: Web Dev, Data Science, Cloud Computing
+    - 3 hobbies: reading, gaming, sports
+    - Well-structured with proper name attributes
+    - NOTE: Code identical to Kushal Vijaypawar Q1 (plagiarism)
+    Q2 Comments:
+    - Most input fields MISSING name attributes -- empid, empname, email won't submit
+    - Gender radio uses name="g" instead of "gender" and MISSING value attributes
+    - Skills checkboxes have NO name or value attributes
+    - Department select MISSING name attribute
+    - Uses plain text labels instead of <label> elements
+    - Submit "Register" and Reset "Clear" using <button> tags -- correct
+    - Sample table with 2 data rows (Rahul/IT, Ravi/HR)
+
+17. NandarapuAyeesha Parveen
+    Q1 Comments:
+    - form action="/register" method="Post" correct (mixed case acceptable)
+    - 9 out of 10 fields present -- ADDRESS TEXTAREA IS COMPLETELY MISSING
+    - Heading typo "User Regisration" (missing 't')
+    - "Female" display text misspelled as "Femle"
+    - type="Checkbox" uses capital C (works but unconventional)
+    - Submit button using <button type="submit"> -- correct
+    Q2 Comments:
+    - Employee ID, Name, Email with required; Department with required -- correct
+    - Gender radio buttons MISSING value attributes
+    - All 4 skills checkboxes MISSING name and value attributes
+    - Remarks textarea MISSING name attribute
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 2 data rows (Sai/Sales, Sree/HR)
+
+18. VISHNUDEVFMRI
+    Q1 Comments:
+    - form action="/register" method="POST" correct
+    - All 10 fields present
+    - Full Name input uses type=''text'' (single-quote pairs instead of double quotes)
+    - Gender radio: first option has value"Male" -- missing = sign
+      Third option: name="gender"value="Other" missing space before value
+    - Several name attributes have trailing spaces ("full name ", "password ", "mobile ")
+    - Textarea missing space between rows="4" and cols="30"
+    Q2 Comments:
+    - Gender radio buttons MISSING value attributes
+    - All 4 skills checkboxes MISSING name and value attributes -- won't submit
+    - Remarks textarea MISSING name attribute
+    - Employee ID input has space in type: type=" text" (minor)
+    - Missing spaces between attributes throughout
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 2 data rows (Dev/IT, Smith/HR)
+
+19. JayashreeK
+    Q1 Comments:
+    - form action="/register" method="post" correct
+    - All 10 field types present but multiple issues:
+    - No heading element on the page
+    - Confirm Password has same name="password" as Password field
+    - Date of Birth MISSING name attribute
+    - Address textarea MISSING name attribute
+    - Hobbies name misspelled "hobbby" (triple b)
+    - Submit button says "Submit" instead of "Register"
+    - Most fields lack <label> tags; uses placeholders instead
+    Q2 Comments:
+    - All fields present with required on empid, empname, email
+    - Department select MISSING "Sales" option -- only has HR, IT, Finance
+    - Skills checkbox values DON'T MATCH labels: "Python" has value="Spring",
+      "HTML" has value="Angular" -- wrong data would be submitted
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 2 data rows (Ram/IT, Sita/HR)
+
+20. KeerthanaB J
+    Q1 Comments:
+    - form action="/register" method="POST" correct
+    - All 10 fields present with required on most
+    - Course options are generic "Course 1", "Course 2", "Course 3"
+      -- should use actual course names
+    - Hobby <label> tags have broken for attributes: missing closing quotes
+    - No page heading element
+    - Gender radio: "Male" label appears duplicated
+    - <meta name="viewport"content=...> missing space; "intial-scale" misspelled
+    Q2 Comments:
+    - MAJOR broken HTML syntax on Employee ID, Employee Name, Email inputs
+      Employee ID: unclosed quote in name attribute
+      Employee Name: missing opening < on input tag
+      These fields would not render correctly
+    - Gender field COMPLETELY MISSING
+    - Department missing "Sales" option; "Finanace" misspelled
+    - <meta chardet="UTF-8"> should be charset (typo)
+    - Nested <table><table> tags (double opening)
+    - Skills checkboxes (Java, Python, HTML, SQL) present and correct
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 2 data rows
+
+21. MoghalAiman Fathima
+    Q1 Comments:
+    - Form attributes have SYNTAX ERROR: comma instead of space
+      action="/register",method="POST" -- browser may not parse method correctly
+    - Label says "First Name" instead of "Full Name"
+    - Confirm Password has same name="password" as Password field
+    - Mobile Number and Date of Birth have NO name attributes
+    - Gender radios have NO value attributes
+    - Course select has empty name="" and wrong id="cars"
+    - Hobbies name is "hooby" (typo); options: Cricket, Swimming, Badminton
+    - NOTE: Code nearly identical to Smit Tandel (plagiarism -- see flag below)
+    Q2 Comments:
+    - Form attributes SYNTAX ERROR: comma instead of space
+    - Department select name="" (empty) and id="cars" (wrong)
+    - Gender radio has NO value attributes
+    - Skills name is "hooby" (typo), NO value attributes
+    - Date of Joining has NO name attribute
+    - Table inside form element and has no border attribute
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 3 data rows
+    - NOTE: Code nearly identical to Smit Tandel (plagiarism -- see flag below)
+
+22. PavanGodi
+    Q1 Comments:
+    - Excellent HTML with lang="en", proper structure, CSS styling
+    - form action="/register" method="POST" correct
+    - All 10 fields present with required on most fields
+    - Well-designed with proper labels and structure
+    - Submit button present
+    Q2 Comments:
+    - Q2 NOT SUBMITTED. Both submitted files (registration.1772789293677.docx and
+      registration.1772788006859.docx) contain identical Q1 registration form code.
+    - No Employee Registration page was provided.
+
+23. Smit Tandel
+    Q1 Comments:
+    - Form attributes have SYNTAX ERROR: comma instead of space
+      action="/register",method="POST"
+    - Confirm Password has same name="password" as Password field
+    - Mobile Number and Date of Birth have NO name attributes
+    - Gender radios have NO value attributes
+    - Course select has empty name="" and wrong id="cars"
+    - Hobbies name is "hooby" (typo); options: Cricket, Swimming, Badminton
+    - NOTE: Code nearly identical to MoghalAiman Fathima (plagiarism -- see flag below)
+    Q2 Comments:
+    - Form attributes SYNTAX ERROR: comma instead of space
+    - Department select name="" (empty) and id="cars" (wrong)
+    - Gender radio has NO value attributes
+    - Skills checkbox name is "hooby" (typo)
+    - Date of Joining has NO name attribute
+    - Table has no border attribute
+    - Submit "Register" and Reset "Clear" correct
+    - Sample table with 3 data rows (all IT department)
+    - NOTE: Code nearly identical to MoghalAiman Fathima (plagiarism -- see flag below)
+
+24. BRamyasree
+    Q1 Comments:
+    - Q1 NOT SUBMITTED. Only one file was submitted (Employee Registration Form).
+    Q2 Comments:
+    - HTML structure present with lang="en" and meta charset
+    - Uses requires instead of required on Employee ID, Name, Email
+      -- HTML attribute is "required" not "requires"; validation will NOT work
+    - All <option> tags use valued instead of value
+      -- department selection data won't be submitted properly
+    - Reset button COMPLETELY BROKEN: <inout type="reset" value="clear"
+      -- "inout" is not a valid HTML tag; missing closing >; lowercase "clear"
+    - References external CSS (styles.css) -- question says "no CSS"
+    - Gender radio correct with name/value; Skills checkboxes correct
+    - Remarks textarea correct with name, rows, cols
+    - Heading typo "Registrered Employees"
+    - Sample table with 2 data rows (Ramya/IT, Anand/Finance)
+
+25. NISHAANTHS
+    Q1 Comments:
+    - form action="/register" method="POST" correct
+    - All 10 field types attempted but multiple issues:
+    - Spaces inside id/name attributes (" confirmPassword", " Mobilenumber")
+      -- browsers may not match these properly
+    - Gender radio buttons MISSING value attributes -- data won't be meaningful
+    - Only 1 hobby checkbox (Coding) -- requires at least 3 options
+    - Textarea has typo clos instead of cols
+    - Submit input tag MISSING closing > -- tag won't render
+    - < meta has space before "meta" -- invalid tag
+    Q2 Comments:
+    - Q2 NOT SUBMITTED. Only one file was submitted (online_learning_platform)
+      which contains only the Q1 registration page code.
+
+
+MISSING SUBMISSIONS
+
+  1. BRamyasree      -- Q1 (Registration Form) NOT submitted
+  2. NISHAANTHS      -- Q2 (Employee Registration) NOT submitted
+  3. PavanGodi       -- Q2 NOT submitted (both files contain identical Q1 code)
